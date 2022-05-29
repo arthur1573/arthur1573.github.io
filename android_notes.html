@@ -1,392 +1,293 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>android debug bridge(adb) notes</title>
-	</head>
-	<body>
-		<p>
-			<h1>android debug bridge(adb) notes</h1>
-			<br/>
-// source of the note
-			<br/>
-https://www.youtube.com/watch?v=uOPcUjVl2YQ
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// more info
-			<br/>
-adb devices -l  
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// more divice, e.g.android phone's usb debug mode
-			<br/>
-adb -s emulator-5554 shell 
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// print out all folders, files in your android system
-			<br/>
-ls
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// exit shell mode
-			<br/>
-exit
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// i am who?
-			<br/>
-whoami
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// change diractor to sdcard: enter to Secure Digital(SD) card folder
-			<br/>
-cd sdcard
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// create a new file named: temp.txt
-			<br/>
-touch temp.txt
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// write hello to temp.txt
-			<br/>
-echo "hello" > temp.txt
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// read temp.txt file in terminal
-			<br/>
-cat temp.txt
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// create a new file
-			<br/>
-vim temp_del.txt
-			<br/>
-			<br/>
-			<br/>
-// vim is a editor
-			<br/>
-sudo apt install vim
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// insert something in INSERT mode
-			<br/>
-i
-			<br/>
-			<br/>
-			<br/>
-// save insert, quit vim
-			<br/>
-:wq
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// use adb to tranport local file to sdcard folder
-			<br/>
-adb push temp_del.txt /sdcard 
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// delete temp_del.txt file
-			<br/>
-rm temp_del.txt
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// pull the temp_del.txt from sdcard folder to current folder
-			<br/>
-adb pull /sdcard/temp_del.txt .
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// catch a android screenshot to current folder named: pic.png
-			<br/>
-adb exec-out screencap -p > ./pic.png
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// open current folder
-			<br/>
-open .
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// open current up-folder
-			<br/>
-open ..
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// change current diractor to a up-diractor
-			<br/>
-cd ..
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// record a video
-			<br/>
-adb shell screenrecord "/sdcard/vidfile.mp4"
-			<br/>
-			<br/>
-			<br/>
-// kill a current command
-			<br/>
-Crtl + C
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// pull the video to the current folder
-			<br/>
-// do not delete origin file
-			<br/>
-abd pull /sdcard/vidfile.mp4 .
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// touch phone without finger
-			<br/>
-adb shell input tap 538 1099
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// open INPUT on phone: Show taps, Pointer location
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// give txt to phone
-			<br/>
-adb shell input text "Hello"
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// show all installed packages
-			<br/>
-adb shell pm list packages
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// search bk package
-			<br/>
-adb shell pm list packages | grep bk
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// in adb shell mode, e.g. generic_x86_arm:/ $
-			<br/>
-run-as bk.yt.example
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// show current folder location
-			<br/>
-pwd
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// clear terminal
-			<br/>
-clear
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// clear terminal
-			<br/>
-Ctrl + L
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// show all package activity
-			<br/>
-adb shell dumpsys activity
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// search the package we are looking for
-			<br/>
-adb shell dumpsys activity "bk.yt.example"
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// edit the package
-			<br/>
-adb shell dumpsys activity "bk.yt.example" | vim -
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// vim quit
-			<br/>
-:q
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// force vim quit without save
-			<br/>
-:q!
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// project: install software on your home television(TV)
-			<br/>
-// linux advanced packaging tool(apt) update
-			<br/>
-sudo apt update && sudo apt upgrade
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// windows user maybe need to install adb.exe, and search, download, run it.
-			<br/>
-// linux user run this in terminal:
-			<br/>
-sudo apt install adb
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// make sure your computer and TV at same WiFi/router
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// check out your TV's Internet Protocol(IP) address in the setting of TV
-			<br/>
-// if your TV's adb switch is off: enter TV information, try press your remote controler this: upupdowndownleftrightleftright or upupdowndownleftleftrightright
-			<br/>
-// try to connect your home TV
-			<br/>
-adb connect 192.168.50.65
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// maybe port is 5555 or not
-			<br/>
-adb connect 192.168.50.65:5555
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// check out connect
-			<br/>
-adb devices
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// enter shell mode
-			<br/>
-adb shell
-			<br/>
-			<br/>
-			<br/>
-			<br/>
-// waitting me update next step
-			<br/>
-		</p>
-	</body>
-</html>
+<h1>android debug bridge(adb) notes</h1>
+<br/>// source of the note
+<br/><a href='https://www.youtube.com/watch?v=uOPcUjVl2YQ'> https://www.youtube.com/watch?v=uOPcUjVl2YQ </a>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// more info
+<br/>adb devices -l 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// more divice, e.g.android phone's usb debug mode
+<br/>adb -s emulator-5554 shell
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// print out all folders, files in your android system
+<br/>ls
+<br/>
+<br/>
+<br/>
+<br/>// exit shell mode
+<br/>exit
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// i am who?
+<br/>whoami
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// change diractor to sdcard: enter to Secure Digital(SD) card folder
+<br/>cd sdcard
+<br/>
+<br/>
+<br/>
+<br/>// create a new file named: temp.txt
+<br/>touch temp.txt
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// write hello to temp.txt
+<br/>echo "hello" > temp.txt
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// read temp.txt file in terminal
+<br/>cat temp.txt
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// create a new file
+<br/>vim temp_del.txt
+<br/>
+<br/>
+<br/>// vim is a editor
+<br/>sudo apt install vim
+<br/>
+<br/>
+<br/>
+<br/>// insert something in INSERT mode
+<br/>i
+<br/>
+<br/>
+<br/>// save insert, quit vim
+<br/>:wq
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// use adb to tranport local file to sdcard folder
+<br/>adb push temp_del.txt /sdcard
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// delete temp_del.txt file
+<br/>rm temp_del.txt
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// pull the temp_del.txt from sdcard folder to current folder
+<br/>adb pull /sdcard/temp_del.txt .
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// catch a android screenshot to current folder named: pic.png
+<br/>adb exec-out screencap -p > ./pic.png
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// open current folder
+<br/>open .
+<br/>
+<br/>
+<br/>
+<br/>// open current up-folder
+<br/>open ..
+<br/>
+<br/>
+<br/>
+<br/>// change current diractor to a up-diractor
+<br/>cd ..
+<br/>
+<br/>
+<br/>
+<br/>// record a video
+<br/>adb shell screenrecord "/sdcard/vidfile.mp4"
+<br/>
+<br/>
+<br/>// kill a current command
+<br/>Crtl + C
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// pull the video to the current folder
+<br/>// do not delete origin file
+<br/>abd pull /sdcard/vidfile.mp4 .
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// touch phone without finger
+<br/>adb shell input tap 538 1099
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// open INPUT on phone: Show taps, Pointer location
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// give txt to phone
+<br/>adb shell input text "Hello"
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// show all installed packages
+<br/>adb shell pm list packages
+<br/>
+<br/>
+<br/>
+<br/>// search bk package
+<br/>adb shell pm list packages | grep bk
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// in adb shell mode, e.g. generic_x86_arm:/ $
+<br/>run-as bk.yt.example
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// show current folder location
+<br/>pwd
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// clear terminal
+<br/>clear
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// clear terminal
+<br/>Ctrl + L
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// show all package activity
+<br/>adb shell dumpsys activity
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// search the package we are looking for
+<br/>adb shell dumpsys activity "bk.yt.example"
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// edit the package
+<br/>adb shell dumpsys activity "bk.yt.example" | vim -
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// vim quit
+<br/>:q
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// force vim quit without save
+<br/>:q!
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>==========
+<br/>// project: install software on your home television(TV)
+<br/>// linux advanced packaging tool(apt) update
+<br/>sudo apt update && sudo apt upgrade
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// windows user maybe need to install adb.exe, and search, download, run it.
+<br/>// linux user run this in terminal:
+<br/>sudo apt install adb
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// make sure your computer and TV at same WiFi/router
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// check out your TV's Internet Protocol(IP) address in the setting of TV
+<br/>// if your TV's adb switch is off: enter TV information, try press your remote controler this: upupdowndownleftrightleftright or upupdowndownleftleftrightright
+<br/>// try to connect your home TV
+<br/>adb connect 192.168.50.65
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// maybe port is 5555 or not
+<br/>adb connect 192.168.50.65:5555
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// check out connect
+<br/>adb devices
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// enter shell mode
+<br/>adb shell
+<br/>
+<br/>
+<br/>
+<br/>// install software
+<br/>adb shell install xxx.apk
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
