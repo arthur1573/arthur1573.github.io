@@ -1,0 +1,222 @@
+<a href = "index.html">index</a>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+<center>
+<h1>
+gameshell notes
+</h1>
+<h3>
+windows subsystem for linux(wsl)
+</h3>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<br/>on windows10
+<br/>// if you want to play this game please go to official website:
+<br/>https://github.com/phyver/GameShell
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// install windows subsystem for linux, and restart windows10
+<br/>Command Prompt(Admin)
+<br/>wsl --install
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// download this game to wsl: you can try this command 
+<br/>sudo wget https://github.com/phyver/GameShell/releases/download/v0.3.1/gameshell.sh
+<br/>sudo bash gameshell.sh
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>open wsl folder
+<br/>explorer.exe .
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// change wsl root password:
+<br/>// Open cmd.exe
+<br/>wsl -u root
+<br/>passwd root
+<br/>exit
+<br/>wsl
+<br/>su
+<br/>
+<br/>// done
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>mission 11
+<br/>list *spider*
+<br/>rm *spider*
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>mission 19
+<br/>tree
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 28
+<br/> kill [pid]
+<br/> kill -s KILL [pid]
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 33
+<br/>grep -l -i gsh grimoire_*
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 34
+<br/>./merlin 2> err
+<br/>gsh check < err
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 35
+<br/>ls -a -l
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 36
+<br/>cp crown ~/Forest/Hut/Chest/
+<br/>---
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 37
+<br/>find -type f
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 38
+<br/>find -type f | xargs grep diamond
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 40
+<br/>ls | xargs grep King
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 41
+<br/>ls | xargs grep -v PAID | wc
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>Mission 42
+<br/>tr ‘m-za-l’ ‘a-z’ < secret_message
+<br/>
+<br/>ROT1:
+<br/>tr ‘b-za-aB-ZA-A’ ‘a-zA-Z’ < secret_message
+<br/>
+<br/>ROT2:
+<br/>tr ‘c-za-bC-ZA-B’ ‘a-zA-Z’ < secret_message
+<br/>ROT26…
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>CONGRATULATIONS! 
+<br/>You have finished all the missions.  
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>one more thing:
+<br/>// if you want to push to github again in a local folder(already cloned)
+<br/>git init
+<br/>git add .
+<br/>git commit -m update
+<br/>git push
+<br/>
