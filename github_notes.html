@@ -1,0 +1,129 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<h1>
+<a href = "index.html">
+index
+</a>
+</h1>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+<center>
+<h1>
+github notes
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<h2>
+<br/>
+<br/>// automatically commit 
+<br/>// create new .txt file, and copy these commands in it:
+<br/>
+<code>
+<br/>@echo off
+<br/>
+<br/>ECHO GIT ADD .
+<br/>git add .
+<br/>@echo,
+<br/>
+<br/>ECHO GIT COMMIT
+<br/>git commit -m "Auto-committed on %date%"
+<br/>@echo,
+<br/>
+<br/>ECHO GIT PUSH
+<br/>git push
+<br/>@echo,
+<br/>
+<br/>PAUSE
+</code>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// rename the file
+<br/>push.bat
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// if you have multiple repository:
+<br/>
+<code>
+<br/>@echo off
+<br/>
+<br/>for /d %%i in (%cd%\*) do (
+<br/>    
+<br/>&nbsp;echo "%%i"
+<br/>&nbsp;cd "%%i"
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo git status
+<br/>&nbsp;git status
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo git init
+<br/>&nbsp;git init
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo git add .
+<br/>&nbsp;git add .
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo git commit -m "auto-committed on %date%"   
+<br/>&nbsp;git commit -m "auto-committed on %date%"   
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo git push
+<br/>&nbsp;git push
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo ----------
+<br/>&nbsp;echo ----------  
+<br/>)
+<br/>
+<br/>cd ..
+<br/>pause
+</code>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// rename the file
+<br/>git.bat
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+</h2>
