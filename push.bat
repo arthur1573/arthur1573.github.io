@@ -10,5 +10,6 @@ git commit -m "Auto-committed on %date"
 
 ECHO GIT PUSH
 git push
+@echo,
 
 PAUSE
