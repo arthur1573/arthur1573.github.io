@@ -1,0 +1,247 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+<center>
+<h1>
+docker notes
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+<h2>
+
+
+
+
+
+<br/>
+<br/>// ubuntu 20
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>apt install docker
+<br/>
+<br/>
+<code>
+sudo visudo
+</code>
+<br/>
+<br/>Add the following line to the bottom
+<br/>
+<code>
+<br/># Docker daemon specification
+<br/>root ALL=(ALL) NOPASSWD: /usr/bin/dockerd
+</code>
+<br/>
+<br/>Notes: Please replace sungkim with your username.
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>you can just add the following at end of .bashrc file.
+<br/>
+<br/>
+
+<code>
+nano ~/.bashrc
+</code>
+
+<br/>
+<br/>then add the following to end of the file.
+<br/>
+<code>
+<br/># Start Docker daemon automatically when logging in if not running.
+<br/>RUNNING=`ps aux | grep dockerd | grep -v grep`
+<br/>if [ -z "$RUNNING" ]; then
+<br/>    sudo dockerd > /dev/null 2>&1 &
+<br/>    disown
+<br/>fi
+</code>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// done
+<br/>docker run hello-world
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// download the system
+<br/>docker pull centos
+<br/>
+<br/>
+<br/>// run system
+<br/>docker run -d -t --name yatao centos
+<br/>
+<br/>
+<br/>// check the image(system)
+<br/>docker ps
+<br/>
+<br/>
+<br/>
+<br/>// I am in a container 
+<br/>docker exec -it yatao bash
+<br/>
+<br/>
+<br/>// quit system
+<br/>exit
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>docker pull alpine
+<br/>
+<br/>
+<br/>docker run -t -d --name ohyeah alpine
+<br/>
+<br/>
+<br/>
+<br/>docker ps
+<br/>
+<br/>
+<br/>// I am in the system
+<br/>docker exec -it ohyeah sh
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// buit a website 
+<br/>docker pull thenetworkchuck/nccoffee:frenchpress
+<br/>
+<br/>docker run -t -d -p 80:80 --name nccoffee thenetworkchuck/nccoffee:frenchpress
+<br/>
+<br/>// if you could see a website, done
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// check myip
+<br/>curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// stop a progress 
+<br/>docker stop ohyeah
+<br/>
+<br/>
+<br/>
+<br/>// start a progress
+<br/>docker start ohyeah
+<br/>
+<br/>
+<br/>// check CPU usage
+<br/>docker stats
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// download a new program 
+<br/>docker pull archlinux
+<br/>
+<br/>
+<br/>docker run -d -t --name arch archlinux
+<br/>
+<br/>docker ps
+<br/>
+<br/>
+<br/>
+<a href="https://www.youtube.com/watch?v=eGz9DS-aIeY">source</a>
+
+</h2>
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<center>
+<h1>
+<a href="#top">back to top</a>
+</h1>
+</center>
