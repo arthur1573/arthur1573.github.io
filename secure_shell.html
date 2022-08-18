@@ -1,0 +1,143 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+Secure Shell(SSH)
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
+<h2>
+
+
+
+<br/>// setting up a ssh connection 
+<br/>// whatever a diratory in your local client (windows11) 
+<br/>// run cmd.exe: 
+<br/>ssh-keygen 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// copy file to linux server 
+<br/>// note: remove my folder: C:\Users\Administrator\.ssh>
+<br/>C:\Users\Administrator\.ssh>scp windows11_id_rsa.pub root@xx.xxx.x.xx:~/.ssh 
+<br/>
+<br/>
+<br/>
+<br/>// login your server with password this time
+<br/>ssh root@xx.xxx.x.xx
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// get into your server's .ssh folder
+<br/>cd .ssh
+<br/>
+<br/>
+<br/>
+<br/>//copy public key file to the configuration file of ssh
+<br/>cat windows11_id_rsa.pub >> authorized_keys 
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>// login your server with private key 
+<br/>ssh root@xx.xxx.x.xx -i "C:\Users\Administrator\.ssh\windows11_id_rsa" 
+<br/>
+<br/>
+<br/>// note: use private key as password to login your server with public key 
+<br/>// server use your public key to encrypt data, so you use private key open it. 
+<br/>
+<br/>done 
+<br/>
+<br/>
+<br/>
+<br/>one more thing:
+<br/>// create a file: root.bat
+<br/>// run it, login, without password and '-i "C:\Users\Administrator\.ssh\windows11_id_rsa" '
+<br/>ssh-add windows11_id_rsa
+<br/>ssh root@xxx.xx.x.xx
+<br/>
+<br/>
+<br/>
+<br/>
+</h2>
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
