@@ -1,4 +1,9 @@
+
 @echo off
+
+ECHO GIT INIT
+git init
+@echo,
 
 ECHO GIT ADD .
 git add .
