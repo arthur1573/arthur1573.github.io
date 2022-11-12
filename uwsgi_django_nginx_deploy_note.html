@@ -174,6 +174,24 @@ uwsgi --http :8002 --module mysite.wsgi
 
 
 
+
+# Copy it into your project directory
+cd /etc/nginx
+ls
+cp uwsgi_params ~/mysite/uwsgi_params
+
+
+
+
+
+# create a file
+vim mysite_nginx.conf
+
+
+
+
+
+
 # mysite_nginx.conf
 # the upstream component nginx needs to connect to
 upstream django {
