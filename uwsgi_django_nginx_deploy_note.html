@@ -1,0 +1,255 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+uwsgi+django+nginx deploy note
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+<head><meta name="color-scheme" content="light dark"></head>
+<pre style="word-wrap: break-word;white-space: pre-wrap;">
+
+
+# README
+# Setting up Django and your web server with uWSGI and nginx
+https://uwsgi.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+
+
+
+
+
+
+
+
+
+# prepare job
+pip install Django
+django-admin.py startproject mysite
+cd mysite
+
+pip install uwsgi
+
+
+sudo apt-get install nginx
+# start nginx
+sudo /etc/init.d/nginx start    
+
+
+
+
+
+
+
+
+
+
+// kill port
+lsof -i:8000
+kill -9 PID
+
+
+
+
+
+
+// kill ps
+kill -9 PID
+
+
+
+
+
+
+
+
+
+
+# vim setting.py add this
+import os
+ALLOWED_HOSTS = ["*"]
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+
+
+
+
+
+
+
+
+
+
+# run django's "hello, new world". easy way
+python3 manage.py runserver 0.0.0.0:8002
+# make sure, it will done
+# press Ctrl + C, to quit and stop the ps
+
+
+uwsgi --http :8002 --module mysite.wsgi
+# open a Brower: 166.12.21.140:8002
+# done :-)
+# Ctrl + C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// hard way
+# CONFIGURE NGINX FOR YOUR SITE
+# You will need the uwsgi_params file, which is available in the nginx directory of the uWSGI distribution, or from https://github.com/nginx/nginx/blob/master/conf/uwsgi_params
+
+# Copy it into your project directory. In a moment we will tell nginx to refer to it.
+
+# Now create a file called mysite_nginx.conf in the /etc/nginx/sites-available/ directory, and put this in it:
+
+
+
+
+# mysite_nginx.conf
+# the upstream component nginx needs to connect to
+upstream django {
+        # server unix:///path/to/your/mysite/mysite.sock; # for a file socket
+        server 127.0.0.1:8001; # for a web port socket (we'll use this first)
+}
+
+
+# configuration of the server
+server {
+        # the port your site will be served on
+        listen 8000;
+        # the domain name it will serve for
+        server_name 166.12.21.140; # substitute your machine's IP address or FQDN
+                charset     utf-8;
+
+# max upload size
+        client_max_body_size 75M;   # adjust to taste
+
+# Django media
+                location /media  {
+                        alias /mysite/media;  # your Django project's media files - amend as required
+                }
+
+        location /static {
+                alias /mysite/static; # your Django project's static files - amend as required
+        }
+
+
+
+        # Finally, send all non-media requests to the Django server.
+        location / {
+                uwsgi_pass  django;
+                include     uwsgi_params; # the uwsgi_params file you installed
+        }
+}
+
+
+
+
+
+
+
+
+uwsgi --socket :8001 --module mysite.wsgi
+# open 8000 port
+open a Brower: 166.12.21.140:8000
+done
+
+
+
+
+
+</pre>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
