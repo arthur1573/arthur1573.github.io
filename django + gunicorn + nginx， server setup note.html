@@ -1,0 +1,284 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+django + gunicorn + nginx， server setup note</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+<head><meta name="color-scheme" content="light dark"></head>
+<pre style="word-wrap: break-word;white-space: pre-wrap;">
+
+Django | server setup
+# source
+https://www.youtube.com/watch?v=YnrgBeIRtvo&ab_channel=DotJA
+
+
+
+
+
+
+
+# prepare knowledge
+
+# kill a port:8000
+lsof -i:8000
+kill -9 <PID>
+
+
+
+# kill a process:nginx
+ps
+kill -9 <PID>
+
+
+
+
+
+
+
+apt install nginx
+apt install python3-venv
+
+
+python3 -m venv django_env
+
+
+source django_env/bin/activate
+
+
+
+pip list
+
+
+pip install django
+pip install gunicorn
+
+
+
+
+
+django-admin startproject myproject
+
+
+
+
+
+nano myproject/myproject/settings.py
+# allowed host = ['66.112.211.100']
+
+
+
+
+
+cd myproject/
+pwd
+# /root/myproject
+# where the manage.py is here
+
+
+
+
+
+nano gunicorn_config.py
+####
+command = '/root/django_env/bin/gunicorn'
+pythonpath = '/root/myproject'
+bind = '66.112.211.100:8000'
+workers = 3
+####
+
+
+
+
+
+
+
+
+
+
+gunicorn -c gunicorn_config.py myproject.wsgi
+
+Ctrl + Z
+bg
+
+
+
+
+
+
+
+
+service nginx start
+
+
+
+
+
+
+
+cd myproject/
+pwd
+# /root/myproject
+
+
+mkdir static
+cd static
+pwd
+# /root/myproject/static
+
+
+nano myproject/setting.py
+# STATIC_URL = '/root/myproject/static/'
+
+
+
+
+
+
+nano /etc/nginx/sites-available/myproject
+####
+server {
+	listen 80;
+	server_name 66.112.211.100;
+
+
+location /static/ {
+	root /root/myproject/static/;
+}
+
+location / {
+	proxy_pass http://66.112.211.100:8000;
+}
+
+}
+
+
+####
+
+
+
+
+
+
+
+
+
+cd /etc/nginx/sites-enabled
+
+ln -s /etc/nginx/sites-available/myproject
+
+systemctl restart nginx
+
+
+
+
+
+
+
+# make sure this foler
+/etc/nginx/sites-enabled
+# only have 2 more link
+
+
+
+
+
+# open a brower, type in 66.112.221.100
+done
+
+
+
+
+
+221125
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
