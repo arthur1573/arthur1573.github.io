@@ -72,17 +72,17 @@ https://www.youtube.com/watch?v=YnrgBeIRtvo&ab_channel=DotJA
 
 
 
-# prepare knowledge
+<h1> # prepare knowledge </h1>
 
 # kill a port:8000
-lsof -i:8000
-kill -9 "your port's pid wants to be killed"
+	lsof -i:8000
+	kill -9 "your port's       pid            wants to be killed"
 
 
 
 # kill a process:nginx
-ps
-kill -9 "your nginx's pid wants to be killed"
+	ps
+	kill -9 "your nginx's         pid           wants to be killed"
 
 
 
@@ -90,21 +90,23 @@ kill -9 "your nginx's pid wants to be killed"
 
 
 
+
+
+
+
+
+<h1># install nginx & requirements</h1>
 
 apt install nginx
 apt install python3-venv
 
 
 python3 -m venv django_env
-
-
 source django_env/bin/activate
 
 
 
 pip list
-
-
 pip install django
 pip install gunicorn
 
@@ -112,10 +114,32 @@ pip install gunicorn
 
 
 
+
+
+
+
+
+
+
+
+<h1> # start with setting Django </h1>
+
 django-admin startproject myproject
 
 
+cd myproject/
+pwd
+# /root/myproject
 
+
+mkdir static
+cd static
+pwd
+# /root/myproject/static
+
+
+nano myproject/setting.py
+# STATIC_URL = '/root/myproject/static/'
 
 
 nano myproject/myproject/settings.py
@@ -125,28 +149,31 @@ nano myproject/myproject/settings.py
 
 
 
+
+
+
+
+
+
+
+
+<h1> # edit this to setup gunicorn</h1>
+
 cd myproject/
-pwd
-# /root/myproject
 # where the manage.py is here
 
-
-
+pwd
+# /root/myproject
 
 
 nano gunicorn_config.py
+
 ####
 command = '/root/django_env/bin/gunicorn'
 pythonpath = '/root/myproject'
 bind = 'xxx.xxx.xxx.xxx:8000'
 workers = 3
 ####
-
-
-
-
-
-
 
 
 
@@ -163,27 +190,14 @@ bg
 
 
 
+
+
+
+
+<h1> # setup nginx </h1>
 service nginx start
 
 
-
-
-
-
-
-cd myproject/
-pwd
-# /root/myproject
-
-
-mkdir static
-cd static
-pwd
-# /root/myproject/static
-
-
-nano myproject/setting.py
-# STATIC_URL = '/root/myproject/static/'
 
 
 
@@ -206,10 +220,7 @@ location / {
 }
 
 }
-
-
 ####
-
 
 
 
@@ -246,6 +257,7 @@ done
 
 221125
 
+* 230108 update some chapters
 
 
 
