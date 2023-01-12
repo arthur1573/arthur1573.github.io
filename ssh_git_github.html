@@ -1,0 +1,170 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+ssh git github note
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+<head><meta name="color-scheme" content="light dark"></head>
+<pre style="word-wrap: break-word;white-space: pre-wrap;">
+
+source:
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+
+
+# Generating a new SSH key
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+
+
+# Adding your SSH key to the ssh-agent
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+
+
+
+
+
+# Adding a new SSH key to your GitHub account
+https://github.com
+
+
+
+ 
+# Testing your SSH connection
+ssh -T git@github.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# clone your github repository by ssh's link
+git clone git@github.com:xxx/xxx.git
+# View the existing remotes
+git remote -v
+
+
+
+
+
+
+
+# set a remote SSH URL in git
+git remote set-url git@github.com:xxx/xxx.git
+git remote -v
+
+
+
+
+
+
+# done
+git init
+git add .
+git commit "update"
+git push
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
