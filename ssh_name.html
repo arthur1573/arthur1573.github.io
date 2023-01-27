@@ -67,27 +67,48 @@ using ssh+name to login a server
 
 
 # how to use ssh+name to connect a server
-# ubuntu
+# debian
+# window10
+
+
+
+
 
 
 
 # #1
 
 # edit this file
+# window10
+# C:\Users\Administrator\.ssh
 cd /root/.ssh
 vim config
 
+
+
+
+
 # ~/.ssh
+# add this code:
+
 host default
 hostname xxx.xx.xxx.xx
 user root
 port xxx
+IdentityFile ./.ssh/your_private_key
+IdentityAgent none
+
 
 
 
 
 # open a terminal
+# cmd
 ssh default
+
+
+
+
 
 # done
 
