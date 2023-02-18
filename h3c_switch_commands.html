@@ -1,0 +1,272 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+h3c switch commands 
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+<head><meta name="color-scheme" content="light dark"></head>
+<pre style="word-wrap: break-word;white-space: pre-wrap;">
+
+
+
+
+
+
+
+# 1
+
+// Directory of flash:/
+dir
+
+
+
+// enter system mode
+system-view
+
+
+
+// exit
+quit
+
+
+
+// help
+?
+
+
+
+// Display current system information
+dispaly this
+
+
+
+
+
+
+
+
+
+
+
+
+# 2
+// check all vlan
+display vlan all
+// NOT THIS:
+vlan all
+
+
+// if you need to delete some vlans(41-4094):
+undo vlan 41 to 4094
+
+// done
+
+
+
+
+
+
+
+
+
+
+
+
+# 3
+// Status and configuration information 
+display interface
+
+
+
+// show table
+display interface brief
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 4
+// how to change a switch 7 port's vlan from 10 to 30
+display interface brief
+
+
+
+
+// [] system-view execut this:
+interface G1/0/7
+
+
+
+
+
+display this
+/*
+#
+interface GigabitEthernet1/0/7
+ port access vlan 10
+ stp edged-port enable
+#
+*/
+
+
+
+
+
+
+port access vlan 30
+display this
+/*
+#
+interface GigabitEthernet1/0/7
+ port access vlan 30
+ stp edged-port enable
+#
+*/
+
+
+quit
+
+
+save force
+
+// done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 5
+
+// dis
+display cpu-usage
+display cpu-usage history
+display environment
+display power
+
+display alarm 
+display transceiver alarm 
+display device 
+display clock
+display transceiver alarm interface
+
+display fan
+
+display version
+display current-configuration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
