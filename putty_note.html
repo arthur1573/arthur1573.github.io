@@ -1,0 +1,172 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+putty note
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+<head><meta name="color-scheme" content="light dark"></head>
+<pre style="word-wrap: break-word;white-space: pre-wrap;">
+
+
+
+
+how to use putty auto login a server
+
+
+
+
+
+
+
+
+
+# 1
+// use password
+
+in Desktop right click to create a shortcut
+New
+    shortcut
+    "C:\Program Files\PuTTY\putty.exe" root@xxx.xxx.xxx.xxx -P xxx -pw xxxxxxxxxxx
+
+
+open shortcut
+//done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 2
+// use ssh key
+
+open PuTTYgen
+Action
+    Generate
+    move your mouse wildly
+    save the "Private key"
+    copy the "Public key" to your server's "authorized_key" file
+
+
+
+
+
+open PuTTY
+Connection
+    Data
+        Auto-login username: root
+
+    SSH
+        Auth
+            Credentials
+            Browse to add the Private key file for authentication
+
+
+
+Session
+    Host Name: xxx.xxx.xxx.xxx
+    Port: xxxxx
+    Saved Session: mySession
+        Save
+
+
+Open
+
+
+
+//done
+
+
+
+
+
+</pre>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
