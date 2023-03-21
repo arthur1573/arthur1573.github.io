@@ -32,11 +32,12 @@ zhaoyatao.com
 
 
 
-<center>
+<!--<center>
 <h1>
-title
+how to get a screenshot of android device
 </h1>
 </center>
+-->
 
 <br/>
 <br/>
@@ -63,7 +64,63 @@ title
 <head><meta name="color-scheme" content="light dark"></head>
 <pre style="word-wrap: break-word;white-space: pre-wrap;">
 
-CONTENT
+
+
+
+
+
+
+
+# 1
+# USB connect to the android device
+
+adb devices
+adb shell 
+
+
+
+# open netwotk debug mode
+setprop service.adb.tcp.port 5555 
+
+
+
+
+
+
+
+
+
+
+
+# 2
+
+# setup android device listen TCP/IP connect on 5555 port 
+adb tcpip 5555  
+
+
+
+# remove USB 
+# conncet to a same local network
+
+
+
+adb connect #ip:port
+#already connected to 172.18.1.111:5555
+
+
+adb devices
+# List of devices attached
+# 172.18.1.111:5555       device
+
+adb shell screencap -p /sdcard/230320.png
+adb pull /sdcard/230320.png F:/1share
+# check the .png picture in disk F:/1share
+
+
+
+
+# done
+
 
 
 </pre>
