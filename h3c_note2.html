@@ -1,0 +1,189 @@
+<a name="top"></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+a:link {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: orange;
+  background-color: transparent;
+  text-decoration: none;
+}
+</style>
+
+
+<center>
+<h1>
+<a href = "index.html">index</a>
+</h1>
+</center>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<title>
+zhaoyatao.com
+</title>
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#bottom" >go to bottom</a>
+</div>
+</h1>
+
+
+
+
+<center>
+<h1>
+how to use h3c switch command find out a repeated ip address
+</h1>
+</center>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<head><meta name="color-scheme" content="light dark"></head>
+<pre style="word-wrap: break-word;white-space: pre-wrap;">
+
+#-1F.wifi cannot use
+#find 172.18.x.xxx
+
+
+
+
+
+
+
+#1
+telnet 172.18.x.xx
+
+
+system
+
+
+display interface brief
+
+
+dis mac-add 58d9-d582-8489
+#display mac-address 58d9-d582-8489
+
+
+int g1/0/22
+
+
+shut
+
+
+#taking your laptop connect a ethernet cable, 
+#it will solve 3 problem
+1.the network cable from the wall
+2.the network line
+3.the internet ip
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#2
+telnet 172.18.x.xx
+
+sys
+
+int g1/0/22
+
+shutdown
+
+dis this
+#
+interface GigabitEthernet1/0/22
+ port access vlan 11
+ shutdown
+ stp edged-port enable
+#
+
+
+
+
+
+#a few moments later...
+undo shutdown
+#
+interface GigabitEthernet1/0/22
+ port access vlan 11
+ stp edged-port enable
+#
+
+
+
+
+#done
+
+</pre>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+<h1>
+<div style="text-align:right;">
+<a href="#top">back to top</a>
+</div>
+</h1>
+
+<a name="bottom"></a>
+</h1>
+</br>
+</br>
+
+
