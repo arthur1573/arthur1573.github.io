@@ -84,10 +84,6 @@ how can i use putty to login as normal user, not root
 
 
 
-#this error could be fixed by using "new_user"
-#to copy the ssh default file(authorized_keys) of "root" to the /home/new_user
-
-
 
 
 #0
@@ -128,11 +124,15 @@ ssh new_user@myserver -p xxxx
 #2
 #using ssh-key
 #common issue: server refused our key
-#login with password first
+#this error could be fixed by using "new_user"
+#to copy the ssh default file(authorized_keys) of "root" to the /home/new_user
 
+
+#login with password first
 cd
 pwd
 #/home/new_user
+
 
 mkdir .ssh
 cd .ssh/
