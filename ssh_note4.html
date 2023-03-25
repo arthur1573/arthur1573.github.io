@@ -48,7 +48,7 @@ zhaoyatao.com
 
 <center>
 <h1>
-how to use h3c switch command find out a repeated ip address
+how can i use putty to login as normal user, not root
 </h1>
 </center>
 
@@ -73,11 +73,37 @@ how to use h3c switch command find out a repeated ip address
 
 
 
+
 <head><meta name="color-scheme" content="light dark"></head>
 <pre style="word-wrap: break-word;white-space: pre-wrap;">
 
-#-1F.wifi cannot use
-#figue out who is using 172.18.x.xxx
+how can i use putty to login as normal user, not root
+
+
+
+
+
+
+#this error could be fixed by using "new_user"
+#to copy the ssh default file(authorized_keys) of "root" to the /home/new_user
+
+
+
+
+#0
+#before this note: create a new user for my server
+
+#log in as the root
+adduser new_user
+
+usermod -aG sudo new_user
+
+su new_user
+
+sudo ls /root
+
+
+
 
 
 
@@ -86,36 +112,8 @@ how to use h3c switch command find out a repeated ip address
 
 
 #1
-telnet 172.18.x.xx
-
-
-system
-
-
-display interface brief
-
-
-dis mac-add 58d9-d582-8489
-#display mac-address 58d9-d582-8489
-
-
-int g1/0/22
-
-
-shut
-
-
-#taking your laptop connect a ethernet cable, 
-#it will solve 3 problem
-1.the network cable from the wall
-2.the network line
-3.the internet ip
-
-
-
-
-
-
+#using password
+ssh new_user@myserver -p xxxx
 
 
 
@@ -128,38 +126,31 @@ shut
 
 
 #2
-telnet 172.18.x.xx
+#using ssh-key
+#common issue: server refused our key
+#login with password first
 
-sys
+cd
+pwd
+#/home/new_user
 
-int g1/0/22
+mkdir .ssh
+cd .ssh/
 
-shutdown
+touch authorized_keys
 
-dis this
-#
-interface GigabitEthernet1/0/22
- port access vlan 11
- shutdown
- stp edged-port enable
-#
-
+sudo cat /root/.ssh/authorized_keys > authorized_keys
 
 
+#login with ssh-key
 
-
-#a few moments later...
-undo shutdown
-#
-interface GigabitEthernet1/0/22
- port access vlan 11
- stp edged-port enable
-#
+done
 
 
 
 
-#done
+
+
 
 </pre>
 
