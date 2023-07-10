@@ -1,0 +1,16 @@
+The computer turns on the BIOS automatic and does not open the Windows Systerm, 
+then you can do this things to help yourself.
+
+ 
+
+ 
+
+Step
+
+1.Setting your BIOS. Open the "CSM Support" ON
+
+2.Formatting your disk to GUID
+
+3.Install a new system
+
+4.Done
