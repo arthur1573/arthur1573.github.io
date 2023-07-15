@@ -73,6 +73,8 @@ https://www.zabbix.com/documentation/current/en/manual/installation/containers
              -d zabbix/zabbix-web-nginx-pgsql:alpine-6.4-latest
 
 	6. open browser, type in localhost, done
+        default user: Admin
+        default password: zabbix
 	
 
 
