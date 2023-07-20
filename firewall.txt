@@ -1,0 +1,99 @@
+
+
+
+operation system: windows10
+
+
+
+
+
+
+
+when you want to open firewall, how to setup a share folder
+
+normal people will close firewall, because it will cost a lot of time to learn
+
+if you are a IT support or IT helpdesk, things get difference
+
+
+
+
+cmd: firewall.cpl
+    advanced setting
+    inbound rule
+        file and printer share(smb-in)
+            scope(effect what domains)
+                remote ip address
+                any ip address √
+
+
+
+
+
+
+
+
+
+
+
+i recently found that an operation system is bound with hardware,
+
+
+for example, my cpu is intel i5-7100, my mother board is Dell OptiPlex 3050,
+
+when i update my system to windows11, i cannot find the internet information services(IIS) in control panel
+
+(certainly opend it in windows function)
+
+when get back to windows10, then i can open IIS, setup a ftp
+
+if firewall is open, it has to setup again in firewall.cpl
+
+add FTP server to bypass firewall
+
+
+
+
+
+
+
+
+
+
+
+if you open firewall, there are a lot work waiting for you,
+
+for instance, when finished installing a software, the new software always jumps a window, 
+
+system ask you want to this new guy bypass firewall?
+
+if system do not ask you, you must add it in firewall
+
+for example, download a software: myftp.exe to desktop
+
+setup is done, but cannot use
+
+most reason is that: firewall is open, firewall do not permit myftp.exe to connect with others
+
+you need to setup firewall: permit other application pass firewall's block
+
+
+control panel
+    system and security
+        windows defender firewall
+            permit application pass firewall
+            permit other application
+                path browse
+                select myftp.exe
+                add
+        confirm
+    done
+
+
+
+
+
+
+
+
+
