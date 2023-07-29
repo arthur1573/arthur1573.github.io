@@ -1,0 +1,54 @@
+
+
+
+
+You got a problem:
+windows10 could connect a .ovpn file, 
+but fedora38 cannot connect to the server 
+
+
+
+
+check system log, every system has every log file
+https://docs.fedoraproject.org/en-US/quick-docs/viewing-logs/
+
+
+
+check log file
+for Fedora 38
+journalctl | grep openvpn | tail -n 30
+
+
+
+
+so, bing.com search this:
+AUTH_FAILED,Data channel cipher negotiation failed (no shared cipher)
+
+
+
+
+
+
+https://forum.hackthebox.com/t/openvpn-issues-data-channel-cipher-negotiation-failed-no-shared-cipher/260307
+
+I am having an issue with my .ovpn credentials, for some reason when I tried connecting this morning using my credentials I am getting the error:
+"2022-06-29 08:40:44 AUTH: Received control message: AUTH_FAILED,Data channel cipher negotiation failed (no shared cipher)
+"
+Is anyone else having this issue, or know of a fix?    
+
+
+
+rdre8:
+Edit your downloaded ovpn file, replace ‘cipher AES-128-CBC’with ‘data-ciphers-fallback AES-128-CBC’
+
+
+
+
+
+
+i do not know what is it really mean, just change the ciper code
+it has done
+it is amazing, does not?
+
+
+
