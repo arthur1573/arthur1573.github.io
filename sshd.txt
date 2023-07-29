@@ -19,7 +19,7 @@ ssh: connect to host xx.xx.xxx.xx port 22: Connection refused
 
 
 why some function/feature/software have a "d":
-    firewalld, systemd, sshd, httpd, ftpd...
+    firewalld, systemd, sshd, httpd, ftpd, vsftpd...
 
 
 
