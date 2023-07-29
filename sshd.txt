@@ -1,0 +1,25 @@
+
+
+in fedora38
+
+
+
+
+ssh is a "client"
+sshd is a "server"
+
+
+
+
+error:
+ssh: connect to host xx.xx.xxx.xx port 22: Connection refused
+    sudo service sshd start
+
+
+
+
+why some function/feature/software have a "d":
+    firewalld, systemd, sshd, httpd, ftpd...
+
+
+
