@@ -1,0 +1,91 @@
+
+
+
+
+operation system: windows10
+software: Internet Information Services (IIS) Manager
+tool: ftp site
+
+
+
+
+
+
+
+first, turn windows10 IIS features on
+
+
+
+
+
+
+check out, who is loginning in windows:
+    This PC
+        Manage
+            local users and group
+                users
+                    name
+                        Administrator: account is disabled
+                        DefaultAccount: account is disabled
+                        Guest: account is disabled
+                        foo: enabled
+                        
+
+
+
+
+
+delete default web site, or setup its "start automatically" to false
+
+sites
+    add ftp site...
+	    //select what you like, then next
+		SSL
+		    no ssl
+			next
+		authentication
+		    anonymous //enable
+			basic  //enable
+		authorization
+		    specified users
+			    foo    //it is a username, its password is your windows unlock password
+				read  //enable
+				write  //enable
+		finish
+		
+
+
+
+
+features view
+    ftp authentication rules
+	    add allow rule...
+	        allow access to this content to:
+			    all anonymous users
+			permissions
+			    read
+			ok
+			
+
+
+
+so, this ftp is opening read permission for anonymous user
+opening read/write permission for specified user
+
+
+
+
+
+
+open explorer.exe(This PC)
+    input directory: ftp://localhost or ftp://127.0.0.1 or ftp://your-ip-address-right-now
+
+
+
+
+done
+
+
+			
+
+
