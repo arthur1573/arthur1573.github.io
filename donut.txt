@@ -1,7 +1,6 @@
 //source: https://www.youtube.com/watch?v=DEqXNfs_HhY
 
-//install
-//curl https://zhaoyatao.com/donut.txt >> donut.c
+
 
 //run
 //gcc donut.c -lm
