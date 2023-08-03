@@ -1,0 +1,57 @@
+
+
+
+operation system: windows10
+
+
+
+
+
+
+
+
+
+#1
+hyper-v managment
+    virtual switch managment
+	    create virtual switch: mySwitch
+		    outside network
+			    allow share
+			confirm
+
+
+
+
+
+
+
+#2
+virtual machine setup
+    network adopter
+	    select mySwitch
+
+
+
+
+
+
+
+#3
+virtual machine system setup
+    ipv4 manual
+	172.xx.xx.xx
+	255.255.xxx.xxx
+	172.xx.xx.xx
+	dns
+	8.8.8.8
+
+
+
+
+
+done
+
+
+
+	
+			
