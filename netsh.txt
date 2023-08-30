@@ -1,0 +1,44 @@
+
+
+
+how to use cmd.exe to change ip address
+
+
+
+
+
+
+
+
+# static mode
+    vEthernet (virtual-switch)
+    netsh interface ip set address "vEthernet (virtual-switch)" static xxx.xxx.xxx.xxx xx.xx.x.x xxx.xxx.xxx.xxx
+        // or this way:
+        // netsh interface ip set address "vEthernet (virtual-switch)" source=static addr=172.16.10.16 mask=255.255.255.0 gateway=172.16.10.254
+    
+    netsh interface ip set dnsservers "vEthernet (virtual-switch)" static 8.8.8.8 primary
+        // or this way:
+        // netsh interface ip set dns "vEthernet (virtual-switch)" source=static address=114.114.114.114 validate=no
+    
+
+
+
+
+
+
+
+
+
+
+
+# dhcp mode 
+    vEthernet (virtual-switch)
+    netsh interface ip set address name="vEthernet (virtual-switch)" source=dhcp
+    netsh interface ip set dns name="vEthernet (virtual-switch)" source=dhcp
+   
+
+
+
+
+
+ 
