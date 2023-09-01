@@ -11,17 +11,16 @@ how to use cmd.exe to change ip address
 
 
 # static mode
-    vEthernet (virtual-switch)
-    netsh interface ip set address "vEthernet (virtual-switch)" static xxx.xxx.xxx.xxx xx.xx.x.x xxx.xxx.xxx.xxx
+    Ethernet
+    netsh interface ip set address "Ethernet" static 172.16.10.16 255.255.255.0 172.16.10.254
         // or this way:
-        // netsh interface ip set address "vEthernet (virtual-switch)" source=static addr=172.16.10.16 mask=255.255.255.0 gateway=172.16.10.254
+		// netsh interface ip set address "Ethernet" source=static addr=172.16.10.16 mask=255.255.255.0 gateway=172.16.10.254 gwmetric=1
+		// windows-xp system must set "gwmetric"
     
-    netsh interface ip set dnsservers "vEthernet (virtual-switch)" static 8.8.8.8 primary
+    netsh interface ip set dns "Ethernet" static 8.8.8.8 
         // or this way:
-        // netsh interface ip set dns "vEthernet (virtual-switch)" source=static address=114.114.114.114 validate=no
+        // netsh interface ip set dnsservers "Ethernet" source=static  address=1.1.1.1 primary validate=no
     
-
-
 
 
 
@@ -32,13 +31,8 @@ how to use cmd.exe to change ip address
 
 
 # dhcp mode 
-    vEthernet (virtual-switch)
-    netsh interface ip set address name="vEthernet (virtual-switch)" source=dhcp
-    netsh interface ip set dns name="vEthernet (virtual-switch)" source=dhcp
-   
+    Ethernet
+    netsh interface ip set address name="Ethernet" source=dhcp
+    netsh interface ip set dns name="Ethernet" source=dhcp
+    
 
-
-
-
-
- 
