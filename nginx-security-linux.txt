@@ -1,0 +1,67 @@
+
+
+
+
+operation system: 
+fedora38
+
+
+
+
+# firewall setting:
+sudo systemctl stop firewalld
+sudo systemctl status firewalld
+sudo systemctl disable firewalld
+
+
+
+# selinux setting
+/usr/sbin/sestatus
+sudo vim /etc/selinux/config
+####
+SELINUX=disabled
+####
+
+
+
+
+
+
+
+
+sudo yum install nginx
+
+sudo systemctl start nginx
+
+sudo systemctl status nginx
+
+
+
+sudo vim /etc/nginx/nginx.conf
+####
+    server{
+    listen    8090;
+    }
+####
+
+
+
+
+
+
+killall nginx
+# equal to this:
+pa aux | grep nginx | awk '{print $2}' | sudo kill -9
+
+
+
+
+
+# if you do not want to diaabled selinux:
+sudo semanage port -l | grep 8090
+sudo semanage port -a -t http_port_t -p tcp 8090
+
+
+
+
+
