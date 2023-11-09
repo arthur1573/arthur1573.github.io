@@ -1,0 +1,55 @@
+fedora38
+https://steampp.net/liunxSetupCer
+https://steampp.net/UnixHostAccess
+https://komodor.com/learn/how-to-fix-ssl-certificate-problem-unable-to-get-local-issuer-certificate-git-error/
+
+
+
+
+
+
+
+# download and install steam++(watt toolkit)
+curl -sSL https://steampp.net/Install/Linux.sh | bash
+
+
+
+# open this diratory
+/home/$(whoami)/.local/share/Steam++/Plugins/Accelerator
+
+# change one file name:
+SteamTools.Certificate.cer
+# to this name
+SteamTools.Certificate.pem
+
+
+#add certificates to the brower
+example: import certificate to firefox
+
+
+
+# change host file permission 
+sudo chmod a+w /etc/hosts
+
+
+
+
+
+
+
+# change git setting to fix this error:
+SSL certificate problem: unable to get local issuer certificate
+
+
+
+# disable SSL certificate validation locally in Git
+git config --global http.sslVerify false
+#To re-enable SSL certificate validation
+git config --global http.sslVerify true
+
+
+
+
+
+# done
+
