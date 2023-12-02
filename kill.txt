@@ -1,0 +1,126 @@
+
+like other linux server, this note is for fedora38 operation system
+
+
+how to use ps and kill, to stop a program?
+
+
+source:
+https://www.digitalocean.com/community/tutorials/how-to-use-ps-kill-and-nice-to-manage-processes-in-linux
+
+
+//simple, quick, read me:
+kill -kill PID_of_target_process_you_want_to_kill
+
+
+
+
+
+
+
+
+
+
+
+
+All processes in Linux respond to signals. 
+Signals are an operating system-level way of telling programs to terminate or modify their behavior.
+
+The most common way of passing signals to a program is with the kill command. 
+As you might expect, 
+the default functionality of this utility is to attempt to kill a process:
+kill PID_of_target_process
+
+
+This sends the TERM signal to the process. 
+The TERM signal tells the process to please terminate. 
+This allows the program to perform clean-up operations and exit smoothly.
+
+If the program is misbehaving and does not exit when given the TERM signal, 
+you can escalate the signal by passing the KILL signal:
+kill -KILL PID_of_target_process
+
+
+
+This is a special signal that is not sent to the program.
+
+Instead, it is given to the operating system kernel, which shuts down the process. 
+This is used to bypass programs that ignore the signals sent to them.
+
+Each signal has an associated number that can be passed instead of the name. 
+For instance, You can pass “-15” instead of “-TERM”, and “-9” instead of “-KILL”.
+
+Signals are not only used to shut down programs. 
+They can also be used to perform other actions.
+
+
+
+
+//what is daemons?
+For instance, many processes that are designed to run constantly in the background 
+(sometimes called “daemons”) will automatically restart when they are given the HUP, 
+or hang-up signal. 
+The Apache webserver typically operates this way.
+
+
+
+
+
+
+sudo kill -HUP pid_of_apache
+
+The above command will cause Apache to reload its configuration file and resume serving content.
+
+//Note: 
+Many background processes like this are managed through system services which provide an additional surface for interacting with them, 
+and it is usually preferable to restart the service itself rather than sending a HUP signal directly to one running process. 
+
+If you review the configuration files of various services, 
+you may find that the various service restart hooks are designed to do exactly that – send signals to specific processes – while also providing logs and other reporting.
+
+
+
+You can list all of the signals that are possible to send with kill with the -l flag:
+kill -l
+
+//Output:
+1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+
+
+
+
+
+
+Although the conventional way of sending signals is through the use of PIDs, there are also methods of doing this with regular process names.
+
+The pkill command works in almost exactly the same way as kill, but it operates on a process name instead:
+pkill -9 ping
+
+
+
+The above command is the equivalent of:
+kill -9 `pgrep ping`
+
+
+
+
+
+
+
+
+If you would like to send a signal to every instance of a certain process, 
+you can use the killall command:
+killall firefox
+//killall nginx
+
+
+
+The above command will send the TERM signal to every instance of firefox running on the computer.
+
+
+
+
+
+
