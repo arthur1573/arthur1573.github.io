@@ -1,0 +1,37 @@
+
+
+
+
+//start the program: ssh-agent
+eval "$(ssh-agent -s)"
+cd .ssh
+ssh-add your_key_you_want_to_add
+
+
+
+
+
+//check the active keys by passing the -l option to ssh-add:
+ssh-add -l 
+
+
+
+//Lists public key parameters of all identities currently repre‐sented by the agent.
+ssh-add -L      
+
+
+
+
+
+
+//removing a key from ssh-agent
+cd .ssh
+ssh-add -d your_key_you_want_to_delete
+
+
+
+
+
+
+
+
