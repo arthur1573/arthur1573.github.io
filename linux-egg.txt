@@ -1,0 +1,36 @@
+
+
+
+
+
+in fedora39 linux, just input these program to play a shell game
+if without any fun, try to follow the hint or change your sit style
+
+
+
+
+
+uname -a 
+uname -a | cowsay
+
+
+
+fortune
+fortune | cowsay
+
+
+
+lolcat
+fortune | lolcat
+
+
+
+oneko
+
+sl
+
+cmatrix
+
+
+
+
