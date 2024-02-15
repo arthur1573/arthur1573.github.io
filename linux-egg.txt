@@ -4,13 +4,14 @@
 
 
 in fedora39 linux, just input these program to play a shell game
-if without any fun, try to follow the hint or change your sit style
-
+if without any fun, try to follow the hint to install
+//sudo yum install cowsay
 
 
 
 
 uname -a 
+cowsay $(uname -a)
 uname -a | cowsay
 
 
