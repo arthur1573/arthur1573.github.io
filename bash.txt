@@ -1,0 +1,151 @@
+
+
+
+
+
+
+source:
+https://www.man7.org/linux/man-pages/man1/intro.1.html
+https://access.redhat.com/solutions/505983
+
+
+
+
+
+
+
+
+
+
+
+
+// check top10 command you typed
+history | awk '{print $2}' | sort | uniq -c | sort -nr | head 
+     82 ls
+     48 sudo
+     23 cd
+     16 history
+     14 oneko
+     12 vi
+     10 ps
+     10 curl
+      8 uname
+      8 make
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// check system environment variable
+env
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// check the default value of PS1
+echo $PS1
+${PROMPT_START@P}\[\e[${PROMPT_COLOR}m\]${PROMPT_USERHOST@P}\[\e[0m\]${PROMPT_SEPARATOR@P}\[\e[${PROMPT_DIR_COLOR:-${PROMPT_COLOR}}m\]${PROMPT_DIRECTORY@P}\[\e[0m\]${PROMPT_END@P}\$\[\e[0m\]
+
+
+
+
+
+
+
+
+
+
+// change PS1 
+//An assignment PS1="What next, master? " would change the prompt as indicated.
+export PS1="What next, master? "
+
+
+
+/*******************
+\u = username
+\h = hostname
+\W = current working directory
+export PS1='[[home]\u@\h \W]\$ '   
+*******************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// mount & umount
+Disks and filesystems
+       The command mount will attach the filesystem found on some disk
+       (or floppy, or CDROM or so) to the big filesystem hierarchy.  And
+       umount detaches it again.  The command df will tell you how much
+       of your disk is still free.
+
+
+
+
+
+
+// To kill a process forcefully:
+// kill -9 PID
+Processes
+       On a UNIX system many user and system processes run
+       simultaneously.  The one you are talking to runs in the
+       foreground, the others in the background.  The command ps will
+       show you which processes are active and what numbers these
+       processes have.  The command kill allows you to get rid of them.
+       Without option this is a friendly request: please go away.  And
+       "kill -9" followed by the number of the process is an immediate
+       kill.  Foreground processes can often be killed by typing
+       Control-C.
+
+
+
+
+
+
+// get more intro:
+whatis kill
+curl cheat.sh/kill
+
+
+
+
+
+
+
+
+
+
+
+
