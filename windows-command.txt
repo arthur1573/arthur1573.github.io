@@ -1,0 +1,126 @@
+
+
+
+windows cmd.exe & run.exe
+common command
+
+
+
+
+
+
+
+
+
+
+========
+cmd.exe
+========
+
+
+
+explorer .
+// open explorer at here
+
+
+
+
+
+
+
+
+netsh winsock reset
+// reset network
+
+
+
+
+
+
+
+systeminfo                 
+//  system information
+
+
+certutil -hashfile test.exe sha256               
+// certification utility  
+
+
+
+tracert 8.8.8.8                
+//  track certification 
+
+
+
+
+ping 8.8.8.8                   
+//  ping-pong game
+
+
+
+
+bcdedit /timeout 10 & bcdedit /set {bootmgr} displaybootmenu yes 
+// administrator mode
+//  boot configuration data edit
+// open security mode
+
+
+
+
+
+route print
+
+
+arp -a
+
+
+
+netsh int ipv4 show address
+// show ipv4 address
+
+
+
+
+
+
+
+
+
+
+
+
+
+=======
+run.exe
+=======
+
+
+explorer
+// restart explorer
+
+
+
+
+cmd
+// open DOS system, command
+
+
+
+ncpa.cpl           
+// network connection panel access control panel list
+
+
+
+
+
+regedit              
+// register edit
+
+
+control
+
+
+
+appwiz.cpl
+// application wizard control panel list
+
