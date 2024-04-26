@@ -1,0 +1,152 @@
+
+
+
+// windows10 for large language model: llama
+
+
+
+
+
+
+
+
+
+
+
+
+// install:
+ollama
+https://ollama.com
+
+
+docker desktop
+https://www.docker.com/products/docker-desktop
+
+
+open-webui
+https://github.com/open-webui/open-webui
+
+
+wsl, for explame: ubuntu22
+download it from microsoft store
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//change environment variables, or saved diratory, help yourself.
+// maybe you need to creat a new key-value data: 
+// key=OLLAMA_MODELS                value=D:\ollama
+
+
+
+
+
+
+
+
+
+
+// open cmd.exe:
+ollama run llama2
+
+// waiting dowaload ok，play for two minutes, then do not close
+
+
+
+
+
+
+
+
+
+
+
+// start docker desktop, open cmd.exe, input this:
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
+
+
+// open a brower, input: localhost:3000
+// you will see a web application, sign up account
+
+
+
+
+
+
+
+
+
+
+
+
+// open wsl:
+
+sudo apt install nginx
+cd /etc/nginx
+cd sites-available
+sudo cp default default_back
+sudo vi default
+
+
+
+// in vi view mode: input "gg dG" to delete all line
+// copy this to your default file:
+
+#########################################
+
+server {
+        server_name localhost;
+        listen 80 default_server;
+        location / {
+                proxy_pass http://localhost:3000;
+        }
+}
+
+#########################################
+
+
+
+
+
+
+
+
+
+
+// open a browser, input: localhost
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
