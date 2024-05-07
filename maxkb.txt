@@ -1,0 +1,49 @@
+
+
+
+
+
+windows10 for document auto reply
+source:
+https://github.com/1Panel-dev/MaxKB
+
+
+
+
+
+
+
+install:
+
+// ollama
+ollama run llama3
+
+
+
+// docker desktop
+docker run -d --name=maxkb -p 8080:8080 -v ~/.maxkb:/var/lib/postgresql/data 1panel/maxkb
+
+# username: admin
+# password: MaxKB@123..
+
+
+
+
+
+
+
+
+upload doc -->  select model  -->  input local api
+maxkb api domain:
+http://host.docker.internal:11434
+
+
+
+
+
+
+
+done
+
+
+
