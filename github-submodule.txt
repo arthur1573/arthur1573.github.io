@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+
+Clone the superproject as usual
+git clone xxxx
+
+
+
+git submodule init 
+// to init the submodules
+
+
+git submodule update 
+//to have the submodules on a detached HEAD
+
+
+
+
