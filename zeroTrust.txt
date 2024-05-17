@@ -65,7 +65,7 @@ click next, put your local computer, as a server, on the public network.
 
 Public hostname
 subdomain: iis
-domain: zhaoyatao.com
+domain: zhaoyatao.com (make sure you have this domain:)
 path: default none
 
 
