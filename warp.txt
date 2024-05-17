@@ -1,0 +1,184 @@
+
+
+
+
+
+
+
+
+windows10, play cloudflare WARP
+// this configure is hard to play
+
+
+
+
+
+
+
+
+
+
+
+source:
+https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/set-up-warp/
+https://developers.cloudflare.com/cloudflare-one/connections/connect-devices/warp/deployment/manual-deployment/
+
+
+
+
+
+
+
+
+
+
+
+
+Create a Cloudflare Zero Trust account
+
+
+
+
+
+
+
+
+
+
+download&install Certificates:
+https://developers.cloudflare.com/cloudflare-one/static/documentation/connections/Cloudflare_CA.crt
+
+
+Download the WARP client:
+https://install.appcenter.ms/orgs/cloudflare/apps/1.1.1.1-windows-1/distribution_groups/release
+
+
+Download cloudflared:
+https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Windows, macOS, and Linux
+Enroll via the GUI
+
+To enroll your device using the WARP GUI:
+1. Download and install the WARP client.
+2. Launch the WARP client.
+3. Select the Cloudflare logo in the menu bar.
+4. Select the gear icon.
+5. Go to Preferences > Account.
+6. Select Login with Cloudflare Zero Trust.
+
+7. Enter your team name(team domain).
+setting  -->  custom page  -->  team domain(name): xxxx.cloudflareaccess.com  -->  add new
+
+
+
+
+
+8. Complete the authentication steps required by your orgarization
+
+setting  -->  authentication  -->  login methods  -->  one-time pin  -->  add new
+
+
+setting  -->  WARP Client  
+Device enrollment
+manage  -->  add a rule  
+Rule name: outlook
+Rule action: allow
+Include
+Selector: Emails ending in     
+Value: @outlook.com
+
+
+	xxxx@outlook.com
+	// input this email, to get a login password
+	// if you use @gmail.com, help yourself
+
+
+
+Once authenticated, you will see a Success page and a dialog prompting you to open WARP
+
+
+
+
+
+9. Select Open Cloudflare WARP.app to complete the registration.
+
+The device is now protected by your organization's Zero Trust policcies
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Device settings
+Profile name  -->  Default  -->  Enabled  -->  Configure
+
+
+Service mode
+Choose how you want the WARP Client to be configured
+
+	Gateway with DoH
+	Only DNS traffic is encrypted by Gateway. This mode only allows for DNS policies to be enforced.
+
+
+	Proxy mode  
+	Gateway only encrypts traffic sent to the localhost proxy. Does not process DNS traffic.
+
+save
+
+
+
+
+
+
+
+
+
+
+
+
+
+done
+
+
+
+
+
+
+
+
+
+
