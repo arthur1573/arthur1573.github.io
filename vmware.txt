@@ -1,0 +1,91 @@
+
+
+
+
+vmware
+
+
+
+
+
+
+
+
+vmware workstation pro for personal use, free edition
+https://blogs.vmware.com/workstation/2024/05/vmware-workstation-pro-now-available-free-for-personal-use.html
+
+
+
+download fedora.iso
+https://fedoraproject.org/
+
+
+
+input .iso system file to your virtual machine
+
+
+
+
+
+
+
+
+// swimming into your new system:
+sudo yum update
+sudo yum install nginx
+sudo nginx
+
+
+
+ifconfig
+
+
+
+
+// play ping-pang game in your real computer(host machine, not virtual hardware)
+ping 192.168.35.128
+
+
+
+
+open a browser, input:
+localhost
+
+
+
+
+
+sudo systemctl status firewalld
+sudo systemctl stop firewalld
+
+
+
+
+
+
+// in your main system, open a browser, input:
+192.168.35.128
+
+
+
+
+
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
