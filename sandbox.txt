@@ -1,0 +1,40 @@
+
+
+
+
+
+Windows10 play sandbox
+cpu: i3-13
+
+
+
+
+
+
+
+turn windows features on or off
+√ windows sandbox
+
+reboot
+
+
+
+open proxy software in your main system 
+√ auto config system proxy
+
+
+
+
+open sandbox, copy your software into it
+open proxy software, do nothing, open a browser, input this:
+google.com  
+
+
+
+
+
+done
+
+
+
+
