@@ -43,7 +43,7 @@ ufw allow 1194/udp
 nano /etc/default/ufw
 #replace DROP with ACCEPT in DEFAULT_FORWARD_POLICY="DROP"
 #save and exit
-
+ 
 #Enable NAT and IP masquerading for clients
 nano /etc/ufw/before.rules
 #Add the following near the top

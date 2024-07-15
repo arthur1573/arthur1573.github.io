@@ -1,0 +1,239 @@
+
+
+
+codespace form github.com 
+https://github.com/open-webui/open-webui
+https://github.com/1Panel-dev/MaxKB/
+https://github.com/ollama/ollama
+
+
+
+
+
+
+sudo apt install fortune
+
+
+
+
+
+fortune
+
+# get an error
+bash: fortune: command not found
+
+
+
+
+
+
+# which place is fortune stay
+whereis fortune
+fortune: /usr/games/fortune /usr/share/man/man6/fortune.6.gz
+
+
+
+
+
+
+
+/usr/games/fortune
+# this could run
+
+
+
+
+
+
+# add this software to environment path
+export PATH=$PATH:/usr/games
+
+
+
+
+
+
+fortune
+# then, this could run
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Open WebUI: 
+# Server Connection Error
+# If you're experiencing connection issues, it’s often due to the WebUI docker container 
+# not being able to reach the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) inside the container . 
+# Use the --network=host flag in your docker command to resolve this. Note that the port changes from 3000 to 8080, resulting in the link: http://localhost:8080.
+# Example Docker Command:
+
+docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+
+
+
+
+
+
+
+
+
+
+
+
+# MaxKB = Max Knowledge Base
+# docker run -d --name=maxkb -p 8080:8080 -v ~/.maxkb:/var/lib/postgresql/data cr2.fit2cloud.com/1panel/maxkb
+
+
+
+
+# add: "--network=host" inside the container could reach the ollama server
+# remove "--name=maxkb"
+# change local port to: "8081", do not change container port: "8080"
+
+docker run -d -p 8081:8080 -v ~/.maxkb:/var/lib/postgresql/data cr2.fit2cloud.com/1panel/maxkb
+
+#  admin
+#  MaxKB@123..
+
+
+
+
+
+
+# get into the container: bd54, which running maxkb
+docker exec -it bd54 bash
+
+
+
+
+# check ip address
+ip address
+
+
+
+
+# eth0: 172.16.5.4
+
+
+
+
+
+
+# check connect in the container
+curl http://172.16.5.4:11434
+
+# cannot connect to server
+
+
+# quit from a docker container
+exit
+
+
+
+
+
+
+
+
+
+# back to local
+curl 172.16.5.4:11434
+
+# curl: (7) Failed to connect to 172.16.5.4 port 11434: Connection refused
+
+
+
+
+
+
+
+
+
+
+# check this ip address
+curl localhost:11434
+
+# Ollama is running
+# this is why we get error in docker container
+# becase ollama is running at：127.0.0.1:11434
+# hard to play, right? codespace do not wrong, it is all my bad behiver
+
+
+
+
+
+
+
+
+
+
+sudo apt install inetutils-ping 
+
+
+ping bing.com
+# no text, can not get a ping-pong respons
+# 100% packet loss
+
+
+ping 172.16.5.4
+# 64 bytes from 172.16.5.4: icmp_seq=1 ttl=64 time=0.043 ms
+
+
+
+
+
+
+
+
+# check again in a docker container:
+docker exec -it bd54 bash
+curl localhost:11434
+curl 172.16.5.4:11434
+
+# curl: (7) Failed to connect to localhost port 11434 after 0 ms: Couldn't connect to server
+# curl: (7) Failed to connect to 172.16.5.4 port 11434 after 0 ms: Couldn't connect to server
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
