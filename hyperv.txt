@@ -6,9 +6,24 @@ how to use hyper-v
 
 
 
+
+
 main host really machine systeminfo
 windows 11 pro insider preview 22h2
-intel(r) core(tm) i3-7100 cpu @ 3.90ghz   3.91 ghz
+intel(r) i3-7100
+
+
+
+
+
+
+
+
+# default setting: you can ping host computer from virtual machine,
+# you cannot ping hyper-v computer form physical device
+# so you need to create a switch
+
+
 
 
 
@@ -25,8 +40,13 @@ hyper-v management
 
 
 
+
+
+
+
 download fedora38 iso file
 https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-38-1.6.iso
+
 
 
 
