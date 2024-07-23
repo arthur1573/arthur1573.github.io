@@ -13,10 +13,11 @@ https://github.com/1Panel-dev/MaxKB
 
 
 
-install:
+install on a local client:
 
 // ollama
 ollama run llama3
+
 
 
 
@@ -41,9 +42,175 @@ http://host.docker.internal:11434
 
 
 
+done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# install on a server:
+
+
+# ollama
+curl -fsSL https://ollama.com/install.sh | sh
+ollama serve
+ollama run llama3
+
+
+
+
+
+
+
+# maxkb
+docker run -d --name=maxkb -p 8080:8080 -v ~/.maxkb:/var/lib/postgresql/data cr2.fit2cloud.com/1panel/maxkb
+
+
+# the most inportant thing is: --network=host
+############################################################
+Open WebUI: Server Connection Error
+If you're experiencing connection issues, it’s often due to 
+the WebUI docker container not being able to reach 
+the Ollama server at 127.0.0.1:11434 (host.docker.internal:11434) 
+inside the container . Use the --network=host flag in your docker command 
+to resolve this. Note that the port changes from 3000 to 8080, 
+resulting in the link: http://localhost:8080.
+Example Docker Command:
+docker run -d --network=host -v open-webui:/app/backend/data -e OLLAMA_BASE_URL=http://127.0.0.1:11434 --name open-webui --restart always ghcr.io/open-webui/open-webui:main
+############################################################
+
+
+
+
+
+
+
+
+docker stop maxkb
+docker rm maxkb
+docker run -d --network=host --name=maxkb -v ~/.maxkb:/var/lib/postgresql/data 1panel/maxkb
+
+# add: --network=host
+# remove: -p 8080:8080
+
+
+
+
+
+
+
+# get into the container, check port is open
+docker exec -it maxkb bash
+curl localhost:11434
+# Ollama is running
+# done
+
+
+
+
+
+
+
+
+
+
+
+
+
+# ollama mode in maxkb
+ollama api domain: http://localhost:11434
+api key: whatever_you_input
+
+# done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. add knowledge database
+2. add application
+3. upload Q&A excel document
+4. select an AI model
+5. done
+
+
+
+
+
+
+
+# kimi mode
+# copy kimi's api key
+API domain： https://api.moonshot.cn/v1
+API Key： Kimi account
+
+
+
+
 
 
 done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
