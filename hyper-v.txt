@@ -1,0 +1,168 @@
+
+
+
+how to use hyper-v
+
+
+
+
+
+
+main host really machine systeminfo
+windows 11 pro insider preview 22h2
+intel(r) i3-7100
+
+
+
+
+
+
+
+
+# default setting: you can ping host computer from virtual machine,
+# you cannot ping hyper-v computer form physical device
+# so you need to create a switch
+
+
+
+
+
+
+
+
+hyper-v management
+    virtual switch setting
+	    creat a new virtual switch
+		    outside
+			default all
+			confirm
+			
+
+
+
+
+
+
+
+download fedora38 iso file
+https://download.fedoraproject.org/pub/fedora/linux/releases/38/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-38-1.6.iso
+
+
+
+
+quick create virtual machine
+    local install source
+	    not enable windows secure boot
+		change setup source
+		select fedora38.iso file
+		install
+		done
+		
+
+open fedora38
+    open wired setting 
+	ipv4 manual
+	    172.xxx.xxx.xxx
+		255.xxx.xxx.xxx
+		172.xxx.xxx.xxx
+		
+		dns
+		8.8.8.8
+		
+	done
+	
+
+
+
+install docker
+https://docs.docker.com/engine/install/fedora/
+	sudo dnf -y install dnf-plugins-core
+	sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+	sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+	
+start docker
+	sudo systemctl start docker
+
+verify docker
+	sudo docker run hello-world
+	
+
+
+
+
+
+install kodbox
+https://github.com/KodCloud-dev/docker
+	docker run -d -p 80:80 kodcloud/kodbox
+	docker run -d -p 80:80 -v ./:/var/www/html kodcloud/kodbox
+	
+
+
+
+
+open guest machine(virtual systemctl) browser firefox, input ip
+	172.xxx.xxx.xxx
+	saw kodbox setup page
+	done
+	
+
+
+open host machine(really systemctl) browser, input ip
+	172.xxx.xxx.xxx
+	not saw kodbox setup page
+	close virtual systemctl firewall
+		sudo service firewalld stop
+	
+	saw kodbox setup page
+	done
+	
+
+
+
+
+
+review
+if you have problem, 
+trying these wildly repeat:
+    sudo service docker restart
+    sudo service firewalld stop
+    sudo service firewalld start
+	
+
+
+
+Configure firewalld 
+    sudo systemctl disable firewalld
+    sudo systemctl stop firewalld.service
+    sudo systemctl mask firewalld
+
+    undo
+    sudo systemctl enable firewalld	
+	sudo systemctl start firewalld.service
+	sudo systemctl unmask firewalld
+	
+	
+	
+
+
+Configure Docker to start on boot with systemd
+    sudo systemctl enable docker.service
+    sudo systemctl enable containerd.service
+    
+    undo
+    sudo systemctl disable docker.service
+    sudo systemctl disable containerd.service
+
+
+
+
+
+
+then,
+you used hyper-v
+not hyper-v used you
+
+
+
+
+
