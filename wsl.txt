@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+https://github.com/LazyVim/LazyVim?tab=readme-ov-file
+https://github.com/ryanoasis/nerd-fonts
+
+
+Sharing Windows fonts with WSL(Windows Subsystem for Linux)
+https://x410.dev/cookbook/wsl/sharing-windows-fonts-with-wsl/
+
+
+
+
+
+
+
+Windows fonts from WSL (Windows Subsystem for Linux)
+win+R: fonts
+
+
+
+
+
+sudo apt install gcc
+sudo snap --classic install nvim
+
+
+
+
+
+
+
+
+
+sudo vi local.conf
+#################
+<fontconfig>
+    <dir>/mnt/c/Windows/Fonts</dir>
+</fontconfig>
+#################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
