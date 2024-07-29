@@ -2,7 +2,7 @@
 
 
 
-//run
+// how to run it
 //gcc donut.c -lm
 //./a.out
 

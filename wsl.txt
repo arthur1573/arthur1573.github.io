@@ -5,6 +5,18 @@
 
 
 
+# cmd.exe
+wsl --install 
+wsl --update
+wsl --set-default-version 2
+wsl
+
+
+
+
+
+
+
 
 
 https://github.com/LazyVim/LazyVim?tab=readme-ov-file
@@ -44,6 +56,31 @@ sudo vi local.conf
     <dir>/mnt/c/Windows/Fonts</dir>
 </fontconfig>
 #################
+
+
+
+
+
+
+
+
+
+
+
+
+# cmd.exe
+wsl ls
+wsl ping localhost
+
+
+
+
+
+# wsl.exe
+cmd.exe ipconfig
+explorer.exe .
+
+
 
 
 
