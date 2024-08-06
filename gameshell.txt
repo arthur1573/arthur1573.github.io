@@ -1,0 +1,268 @@
+
+
+
+
+
+
+
+
+
+
+
+on windows10
+// if you want to play this game please go to official website:
+https://github.com/phyver/GameShell
+
+
+
+
+
+
+
+// install windows subsystem for linux, and restart windows10
+Command Prompt(Admin)
+wsl --install
+wsl --update
+
+
+
+
+
+
+
+
+// download this game to wsl: you can try this command
+cd /tem
+wget https://github.com/phyver/GameShell/releases/download/latest/gameshell.sh
+bash gameshell.sh
+// do not mkdir a new folder to run this game, because linux will complain to you: permission denied.
+
+
+
+
+
+open wsl folder
+explorer.exe .
+
+
+
+
+
+
+
+
+
+// change wsl root password:
+// Open cmd.exe
+wsl -u root
+passwd root
+exit
+wsl
+su
+
+// done
+
+
+
+
+
+
+
+
+
+mission 11
+list *spider*
+rm *spider*
+
+
+
+
+
+
+
+
+mission 19
+tree
+
+
+
+
+
+
+
+
+
+
+mission 21
+find -type f
+find -iname *gold*
+
+
+
+
+
+
+
+
+mission 22
+head -n 6 Book_of_potions/page_07
+
+
+
+
+
+
+
+Remark: ``cat`` is an abbreviation for "concatenate".
+
+
+
+
+
+
+
+Remark: N is called PID, or "process identifier".
+
+
+
+
+
+
+
+
+
+
+Mission 28
+kill -s kill [pid]
+
+
+
+
+
+
+
+
+
+
+Mission 33
+grep -l -i gsh grimoire_*
+
+
+
+
+Mission 34
+./merlin 2> err
+gsh check < err
+
+
+
+
+Mission 35
+ls -a -l
+
+
+
+
+Mission 36
+cp crown ~/Forest/Hut/Chest/
+---
+
+
+
+
+Mission 37
+find -type f
+
+
+
+
+
+Mission 38
+find -type f | xargs grep diamond
+
+
+
+
+
+
+
+
+Mission 40
+ls | xargs grep King
+
+
+
+
+
+
+
+Mission 41
+ls | xargs grep -v PAID | wc
+
+
+
+
+
+
+
+
+
+Mission 42
+tr ‘m-za-l’ ‘a-z’ < secret_message
+
+ROT1:
+tr ‘b-za-aB-ZA-A’ ‘a-zA-Z’ < secret_message
+
+ROT2:
+tr ‘c-za-bC-ZA-B’ ‘a-zA-Z’ < secret_message
+ROT26…
+
+
+
+
+
+
+
+CONGRATULATIONS!
+You have finished all the missions.
+
+
+
+
+
+
+
+
+
+
+one more thing:
+// if you want to push to github again in a local folder(already cloned)
+ssh-keygen -t ed25519 -C "your_email@example.com"
+// manual add this public key to your website account
+// manual add the private key to local client
+ssh-add [path/file]
+
+
+
+
+
+
+
+
+// enjoy github
+git init
+git add .
+git commit -m update
+git push
+
+
+
+
+
+
+
+
+
+
+
+

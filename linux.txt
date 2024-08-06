@@ -1,0 +1,67 @@
+
+
+
+
+
+
+
+
+
+alias reload="source ~/.bashrc"
+alias: create a shortcommand
+
+
+
+###############
+source: to execute commands and refresh the environment variables
+https://www.baeldung.com/linux/source-command
+###############
+
+
+source FILENAME [arguments]
+. FILENAME [arguments]
+
+# As we can see above, the dot or period character ‘. ‘ is a synonym for the source keyword. 
+As such, there is no difference in output between the two.
+
+
+
+
+cat test.txt
+printf "Today's date is: "
+date
+echo
+cal -3
+
+
+
+
+
+source test.txt
+Today's date is: Sat May 23 07:26:50 IST 2020
+...
+
+==================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

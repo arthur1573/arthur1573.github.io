@@ -13,6 +13,7 @@ common command
 
 
 
+
 ========
 cmd.exe
 ========
@@ -90,6 +91,9 @@ netsh int ipv4 show address
 
 
 
+
+
+
 =======
 run.exe
 =======
@@ -123,4 +127,25 @@ control
 
 appwiz.cpl
 // application wizard control panel list
+
+
+
+
+
+
+
+
+winver
+// windows version
+
+
+
+
+
+
+
+
+
+
+
 
