@@ -1,0 +1,47 @@
+
+
+
+
+
+windows system has bug
+
+
+
+
+
+
+
+sougou keyboard develop from china
+
+cloud open game center in lock screen
+
+and run cmd.exe in administrater mode
+
+
+sougou company say this is microsoft's problem
+
+after few days
+
+you cannot open cmd.exe in your diractory
+
+when you input "cmd" in your explorer path
+
+and press: ctrl+shift+enter
+
+
+you will open a website: www.cmd.com
+
+what, i get nothing
+
+
+
+
+do not know how to fix
+
+just speak other language...
+
+
+
+
+
+

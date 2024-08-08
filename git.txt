@@ -1,0 +1,120 @@
+
+
+
+
+
+
+
+# my computer rebuild system regular,
+# for better performance
+# then cannot use "git" anymore
+# try to fix it
+https://stackoverflow.com/questions/43378060/meaning-of-the-github-message-push-declined-due-to-email-privacy-restrictions
+
+
+
+
+
+
+
+git init
+
+
+
+git add .
+
+
+
+
+git remote --verbose
+
+# ver·bose
+# adjective
+# using or expressed in more words than are needed:
+# "much academic language is obscure and verbose"
+
+
+
+
+
+
+git remote remove origin
+
+
+git remote add origin https://github.com/arthur1573/arthur1573.github.io
+
+
+
+
+git pull
+
+
+
+git pull origin main
+
+
+
+git commit 
+
+
+
+git push
+
+
+git push --set-upstream origin main
+
+
+
+
+
+# push declined due to email privacy restrictions
+
+
+git config --global user.email
+
+
+
+# change it to:
+git config --global user.email xxxxxxxx+arthur1573@users.noreply.github.com
+
+
+
+
+
+# Reset the author information on your last commit:
+git commit --amend --reset-author
+
+
+
+
+
+git push --set-upstream origin main
+
+
+
+
+
+
+
+
+# done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
