@@ -5,6 +5,17 @@
 
 
 
+linux command(software) 
+
+        source
+
+can execute binary file
+
+
+
+
+
+
 
 
 alias reload="source ~/.bashrc"
@@ -37,9 +48,12 @@ cal -3
 
 
 
+
+
 source test.txt
-Today's date is: Sat May 23 07:26:50 IST 2020
+Aug 13
 ...
+
 
 ==================================
 

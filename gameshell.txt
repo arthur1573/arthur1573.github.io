@@ -9,9 +9,12 @@
 
 
 
-on windows10
+// on windows10
 // if you want to play this game please go to official website:
 https://github.com/phyver/GameShell
+
+
+
 
 
 
@@ -25,6 +28,10 @@ wsl --install
 wsl --update
 
 
+
+
+# install dependencies:
+sudo apt install gettext man-db procps psmisc nano tree bsdmainutils x11-apps wget
 
 
 
@@ -41,8 +48,12 @@ bash gameshell.sh
 
 
 
-open wsl folder
+// open wsl folder
 explorer.exe .
+
+# save the file to your other system:
+gameshell-save.sh 
+
 
 
 
