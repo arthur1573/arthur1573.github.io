@@ -1,0 +1,6 @@
+
+
+
+
+# how to install a proxy for docker desktop
+settings  --->   resource   --->  proxies   --->   localhost:1080

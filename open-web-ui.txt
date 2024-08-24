@@ -1,0 +1,60 @@
+
+windows10
+https://github.com/open-webui/open-webui
+
+
+
+
+
+
+
+
+download ollama
+run llama3
+done
+
+
+download docker desktop
+run open-web-ui
+done
+
+
+download wsl
+run nginx
+done
+
+
+download cloudflared
+run localhost:80
+done
+
+
+
+open browser
+cannot get my computer as a server
+not done
+
+
+
+
+
+
+
+
+
+
+# remove: --restart always
+# remove: --name open-webui
+docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data ghcr.io/open-webui/open-webui:main
+
+
+
+
+
+
+
+
+
+
+
+
