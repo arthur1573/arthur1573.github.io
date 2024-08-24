@@ -48,7 +48,7 @@ Choose an architecture: 64-bit
 1. Download https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi.
 2. Run the installer.
 3. Open Command Prompt as Administrator.
-4. Run the following command:
+4. Run the following command (in your browser for your personal use):
 ***********
 
 
@@ -65,7 +65,7 @@ click next, put your local computer, as a server, on the public network.
 
 Public hostname
 subdomain: iis
-domain: zhaoyatao.com (make sure you have this domain:)
+domain: zhaoyatao.com ( make sure you have this domain :)  )
 path: default none
 
 
@@ -88,6 +88,7 @@ save
 
 open a browser, input: iis.zhaoyatao.com
 drink a cup of tea for waiting time 
+
 
 
 

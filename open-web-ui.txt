@@ -1,4 +1,7 @@
 
+
+
+
 windows10
 https://github.com/open-webui/open-webui
 
@@ -14,12 +17,12 @@ run llama3
 done
 
 
-download docker desktop
+download docker-desktop
 run open-web-ui
 done
 
 
-download wsl
+download windwos subsystem for linux (wsl)
 run nginx
 done
 
@@ -27,6 +30,8 @@ done
 download cloudflared
 run localhost:80
 done
+
+
 
 
 
@@ -46,6 +51,91 @@ not done
 # remove: --restart always
 # remove: --name open-webui
 docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data ghcr.io/open-webui/open-webui:main
+
+
+
+
+
+
+
+
+
+
+
+# thanks this issus, it maybe is nginx's problem:
+https://github.com/open-webui/open-webui/discussions/1203
+
+
+
+
+server {
+        listen 80;
+        client_max_body_size 4G;
+        server_name localhost;
+        location / {
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                proxy_pass http://localhost:3000;
+        }
+
+
+
+map $http_upgrade $connection_upgrade {
+        default upgrade;
+        '' close;
+}
+
+
+
+
+
+
+
+
+open browser
+get my computer as a server
+done
+
+
+
+
+
+
+
+
+# i am trying this config, still working...do not why...
+
+
+
+sudo vim /etc/nginx/sites-available/default
+sudo service nginx restart
+# sudo nginx -s reload
+
+
+server {
+        listen 80;
+
+        location / {
+                proxy_pass http://localhost:3000;
+        }
+
+
+
+
+
+
+# it is clear, localhost:3000  ---> redirect to --->  localhost:80
+
+
+
+
+
+# open a browser, input: iis.zhaoyatao.com 
+# then, you can use your moblie phone to access home computer
+# ask question to large language model: llama3
+
 
 
 

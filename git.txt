@@ -117,5 +117,13 @@ git config --global --unset http.proxy
 
 
 
+# you maybe do not get a "push", if you use a proxy
+# try to remove it:
+git config --unset http.proxy
+
+
+
+
+
 
 
