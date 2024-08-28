@@ -1,0 +1,31 @@
+
+
+
+
+sudo apt install nginx
+
+
+sudo nginx
+
+
+
+# cd /etc/nginx/sites-available
+# sudo vim default
+
+
+server {
+        listen 80;
+	server_name xxx.xxx.xxx.xxx;
+        location / {
+                proxy_pass http://localhost:3000;
+        }
+}
+
+
+
+
+
+
+
+sudo nginx -s reload  
+

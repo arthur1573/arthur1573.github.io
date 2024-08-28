@@ -5,7 +5,7 @@
 
 
 
-# cmd.exe:
+# cmd.exe
 wsl --install 
 wsl --update
 wsl --set-default-version 2
