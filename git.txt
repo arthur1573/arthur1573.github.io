@@ -108,12 +108,23 @@ git push --set-upstream origin main
 
 
 
+
+
+
+
 #setting a proxy for git
 git config --global http.proxy http://localhost:1080
+git config http.proxy localhost:1080
+
+
 
 
 # unset a proxy 
 git config --global --unset http.proxy
+git config --unset http.proxy
+
+
+
 
 
 
