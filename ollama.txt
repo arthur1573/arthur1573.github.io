@@ -1,16 +1,60 @@
 
 
-https://ollama.com/download
+# github codespace 
+# https://ollama.com/download
+# https://github.com/ollama/ollama
 
 
 
 
 
 
+# windows:
 # open cmd.exe:
+ollama run llama3
+
+
+done
+
+
+
+
+
+
+
+
+
+
+# linux: 
+# install
+curl -fsSL https://ollama.com/install.sh | sh
+
+
+
+
+
+
+
+# run:
+ollama serve
 ollama run llama3
 
 
 
 
-done
+
+
+
+
+
+########### https://github.com/arthur1573/one-click-install-ai
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,75 @@
+
+
+
+# https://github.com/Cinnamon/kotaemon
+
+
+
+
+
+
+
+
+
+docker run \
+-e GRADIO_SERVER_NAME=0.0.0.0 \
+-e GRADIO_SERVER_PORT=7860 \
+-p 7860:7860 -it --rm \
+ghcr.io/cinnamon/kotaemon:latest
+
+
+
+
+
+# Navigate to: http://localhost:7860/
+# username: admin
+# password: admin
+
+
+
+
+
+
+do not get ollama, test get an error....
+
+
+
+
+
+
+
+# re-run command:
+
+docker run \
+--network=host \
+-e GRADIO_SERVER_NAME=127.0.0.1 \
+-e GRADIO_SERVER_PORT=7860 \
+-it --rm \
+ghcr.io/cinnamon/kotaemon:latest
+
+
+# add: --network=host
+# remove: -p 7860:7860
+# modified:  0.0.0.0 ---> 127.0.0.1
+
+
+# it is not work
+
+
+
+
+
+
+
+
+
+
+
+
+docker run \
+-e GRADIO_SERVER_NAME=0.0.0.0 \
+-e GRADIO_SERVER_PORT=7860 \
+-p 7860:7860 -it --rm \
+ghcr.io/cinnamon/kotaemon:latest
+
+

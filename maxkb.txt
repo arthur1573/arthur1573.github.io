@@ -158,6 +158,8 @@ curl localhost:11434
 ollama api domain: http://localhost:11434
 api key: whatever_you_input
 
+
+
 # done
 
 
