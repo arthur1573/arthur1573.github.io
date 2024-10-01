@@ -1,0 +1,97 @@
+
+
+
+
+
+
+#### How Linux Kernel Prints Text on Screen
+
+https://www.youtube.com/watch?v=aAuw2EVCBBg
+https://www.bilibili.com/video/BV1ex4y1t7WF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# download latest release
+www.kernel.org
+
+
+
+
+# open windows subsystem for linux 
+
+explorer.exe .
+
+# copy to linux folder
+
+# unzip
+tar -xf linux-6.11.1.tar.xz
+
+
+# this will download all linux-kernel, do not run:
+git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cd linux-6.11.1
+
+make defconfig
+
+sudo apt install flex
+sudo apt install bison
+
+####
+*** Default configuration is based on 'x86_64_defconfig'
+#
+# configuration written to .config
+#
+####
+
+
+done
+
+tired... next time update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
