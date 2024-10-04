@@ -24,6 +24,7 @@ https://www.bilibili.com/video/BV1ex4y1t7WF
 
 
 
+
 # download latest release
 www.kernel.org
 
@@ -68,12 +69,27 @@ make defconfig
 sudo apt install flex
 sudo apt install bison
 
-####
+
+make defconfig
+
+#### output:
+
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+
 *** Default configuration is based on 'x86_64_defconfig'
 #
 # configuration written to .config
 #
+
 ####
+
 
 
 done
