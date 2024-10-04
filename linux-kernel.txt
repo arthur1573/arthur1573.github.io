@@ -31,7 +31,7 @@ www.kernel.org
 
 
 
-# open windows subsystem for linux 
+# open windows subsystem for linux, ubuntu22, this time
 
 explorer.exe .
 
@@ -104,6 +104,153 @@ tired... next time update
 
 
 
+
+
+
+
+
+make menuconfig
+
+
+
+sudo apt install pkg-config
+sudo apt install libncurses-dev
+
+
+
+
+Kernel hacking   --->  Compile-time checks and compiler options  
+        --->   Debug information (Disable debug information)   --->   (X) Rely on the toolchain's implicit default DWARF versiLon
+		--->   [*] Provide GDB scripts for kernel debugging
+
+
+
+
+
+
+make -j 8
+
+
+
+
+
+# <stdin>:1:10: fatal error: libelf.h: No such file or directory
+
+
+
+
+
+# search for bing.com: libelf.h: No such file or directory
+
+
+
+
+
+sudo apt install libelf-dev
+
+
+
+
+
+
+
+make
+
+
+
+
+
+# certs/extract-cert.c:21:10: fatal error: openssl/bio.h: No such file or directory
+
+
+
+
+
+sudo apt-get install aptitude
+sudo aptitude install libssl-dev
+
+
+
+
+
+make -j 8
+
+
+
+
+
+
+# my cpu fans go crazy, i go away from my computer, what i have done
+
+
+
+
+
+
+
+# after a long-not-happy time, output these:
+
+####
+  ...
+  OBJCOPY arch/x86/boot/vmlinux.bin
+  AS      arch/x86/boot/header.o
+  LD      arch/x86/boot/setup.elf
+  OBJCOPY arch/x86/boot/setup.bin
+  BUILD   arch/x86/boot/bzImage
+Kernel: arch/x86/boot/bzImage is ready  (#1)
+####
+
+
+
+
+
+
+
+
+man make
+
+/-j
+
+-j [jobs], --jobs[=jobs]
+            Specifies  the number of jobs (commands) to run simultaneously.  If there is more than one -j
+            option, the last one is effective.  If the -j option is given without an argument, make  will
+            not  limit  the number of jobs that can run simultaneously. When make invokes a sub-make, all
+            instances of make will coordinate to run the specified number of jobs at a time; see the sec‐
+            tion PARALLEL MAKE AND THE JOBSERVER for details.
+			
+			
+		
+
+
+	
+	
+
+make
+
+
+
+
+
+
+####
+  CALL    scripts/checksyscalls.sh
+  DESCEND objtool
+  INSTALL libsubcmd_headers
+Kernel: arch/x86/boot/bzImage is ready  (#1)
+####
+
+
+
+
+
+
+done
+
+
+
+
+
+tired... next time
 
 
 
