@@ -1,0 +1,13 @@
+
+
+
+# login ngrok.com
+
+
+# download for windows
+
+
+ngrok config add-authtoken xxxx
+
+
+ngrok http http://localhost:8080
