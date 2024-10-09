@@ -9,6 +9,9 @@
 https://www.youtube.com/watch?v=aAuw2EVCBBg
 https://www.bilibili.com/video/BV1ex4y1t7WF
 
+https://www.kernel.org/
+https://docs.kernel.org/dev-tools/gdb-kernel-debugging.html
+ubuntu22
 
 
 
@@ -48,6 +51,16 @@ git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 
 
 
+# or, you use codespace: 
+wget https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.11.1.tar.xz
+
+tar -xf linux-6.11.1.tar.xz
+
+
+
+
+
+
 
 
 
@@ -64,10 +77,15 @@ git clone git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 
 cd linux-6.11.1
 
+
 make defconfig
 
+
+sudo apt update
+sudo apt upgrade
 sudo apt install flex
-sudo apt install bison
+# sudo apt install bison
+
 
 
 make defconfig
@@ -110,9 +128,12 @@ tired... next time update
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> a3bfd600f6bb31ce08682da5a1c20eda66a9a55e
 make menuconfig
 
 
@@ -177,8 +198,13 @@ make -j 8
 
 
 
+<<<<<<< HEAD
 # bing.com search for: libelf.h: No such file or directory
 
+=======
+# search for bing.com: libelf.h: No such file or directory
+# fatal error: gelf.h: No such file or directory
+>>>>>>> a3bfd600f6bb31ce08682da5a1c20eda66a9a55e
 
 
 
@@ -304,4 +330,148 @@ tired... next time
 
 
 
+<<<<<<< HEAD
+=======
+make scripts_gdb
+
+
+
+cd ~/distro
+
+
+
+mkdir ~/distro
+
+
+
+cd ~/distro
+
+
+
+vim init.c
+
+
+
+
+###########   init.c   
+#include <stdio.h>
+
+int main()
+{
+        printf("Hello, new world. \n");
+}
+###########
+
+
+
+
+
+
+
+
+gcc -static init.c -o init
+
+ls
+
+./init
+
+
+
+
+strace ./init
+
+
+
+
+man 2 write
+
+
+
+
+
+
+
+
+
+echo init | cpio -H newc -o > init.cpio
+
+sudo apt install cpio
+
+
+echo init | cpio -H newc -o > init.cpio
+
+
+
+
+
+
+
+vim
+
+# open a file
+:e fs/read_write.c 
+
+# search a file
+/sys_write
+
+
+
+
+
+
+# create a new file: .gdbinit
+# in this directory: /linux-6.11.1
+:new .gdbinit
+
+
+
+########## edit this: 
+add-auto-load-safe-path /path/to/linux-build
+
+
+########## into this file: .gdbinit
+add-auto-load-safe-path /linux-6.11.1
+
+
+
+
+
+
+
+gdb vmlinux
+
+
+
+# open a new terminal
+qemu-system-x86_64
+
+
+
+
+
+
+# need to install qemu
+
+
+
+
+
+tired... next time...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> a3bfd600f6bb31ce08682da5a1c20eda66a9a55e
 
