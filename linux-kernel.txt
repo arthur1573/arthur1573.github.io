@@ -109,7 +109,32 @@ tired... next time update
 
 
 
+
+
+
+
 make menuconfig
+
+
+
+
+
+
+# error:
+# * Unable to find the ncurses package
+####
+*
+* Unable to find the ncurses package.
+* Install ncurses (ncurses-devel or libncurses-dev
+* depending on your distribution).
+*
+* You may also need to install pkg-config to find the
+* ncurses installed in a non-default location.
+*
+####
+
+
+
 
 
 
@@ -118,6 +143,18 @@ sudo apt install libncurses-dev
 
 
 
+
+
+
+
+make menuconfig
+
+
+
+
+
+
+# down to the lowest
 
 Kernel hacking   --->  Compile-time checks and compiler options  
         --->   Debug information (Disable debug information)   --->   (X) Rely on the toolchain's implicit default DWARF versiLon
@@ -140,7 +177,7 @@ make -j 8
 
 
 
-# search for bing.com: libelf.h: No such file or directory
+# bing.com search for: libelf.h: No such file or directory
 
 
 
@@ -155,6 +192,7 @@ sudo apt install libelf-dev
 
 
 make
+
 
 
 
@@ -251,6 +289,15 @@ done
 
 
 tired... next time
+
+
+
+
+
+
+
+
+
 
 
 
