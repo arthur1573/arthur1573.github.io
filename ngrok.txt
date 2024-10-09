@@ -1,6 +1,13 @@
 
 
 
+# this software just like cloudflared from cloudflare.com
+
+
+
+
+
+
 # login ngrok.com
 
 
