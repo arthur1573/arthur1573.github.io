@@ -8,7 +8,6 @@
 
 https://www.youtube.com/watch?v=aAuw2EVCBBg
 https://www.bilibili.com/video/BV1ex4y1t7WF
-
 https://www.kernel.org/
 https://docs.kernel.org/dev-tools/gdb-kernel-debugging.html
 ubuntu22
@@ -128,12 +127,6 @@ tired... next time update
 
 
 
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> a3bfd600f6bb31ce08682da5a1c20eda66a9a55e
 make menuconfig
 
 
@@ -197,14 +190,9 @@ make -j 8
 
 
 
-
-<<<<<<< HEAD
-# bing.com search for: libelf.h: No such file or directory
-
-=======
 # search for bing.com: libelf.h: No such file or directory
 # fatal error: gelf.h: No such file or directory
->>>>>>> a3bfd600f6bb31ce08682da5a1c20eda66a9a55e
+
 
 
 
@@ -330,8 +318,7 @@ tired... next time
 
 
 
-<<<<<<< HEAD
-=======
+
 make scripts_gdb
 
 
@@ -469,9 +456,4 @@ tired... next time...
 
 
 
-
-
-
-
->>>>>>> a3bfd600f6bb31ce08682da5a1c20eda66a9a55e
 
