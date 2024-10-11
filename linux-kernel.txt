@@ -11,6 +11,9 @@ https://www.bilibili.com/video/BV1ex4y1t7WF
 https://www.kernel.org/
 https://docs.kernel.org/dev-tools/gdb-kernel-debugging.html
 ubuntu22
+https://www.qemu.org/docs/master/system/introduction.html
+
+
 
 
 
@@ -423,9 +426,14 @@ add-auto-load-safe-path /linux-6.11.1
 
 
 
-
-
 gdb vmlinux
+
+
+
+
+
+
+
 
 
 
@@ -445,6 +453,100 @@ qemu-system-x86_64
 
 tired... next time...
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# download qemu
+
+# QEMU is packaged by most Linux distributions:
+# Debian/Ubuntu:
+# For full system emulation: apt-get install qemu-system
+# For emulating Linux binaries: apt-get install qemu-user-static
+
+
+
+
+
+sudo apt install qemu-system
+
+
+
+
+qemu-system-x86_64
+
+
+
+# Unable to init server: Could not connect: Connection refused
+# gtk initialization failed
+
+# maybe, can not run form a codespace server
+# need to run from local, for example, windows subsystem for linux 
+
+
+
+
+
+
+
+# this could run:
+qemu-system-x86_64 -nographic
+
+
+
+# open a new terminal in vscode of codespace: ctrl+shift+~
+cd linux-6.11.1
+
+
+
+
+
+
+# change this:
+# qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+# add: -nographic
+qemu-system-x86_64 -nographic -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+
+
+
+
+# open a new terminal:
+gdb vmlinux
+
+
+# press enter, enter. until see: (gdb)
+
+
+
+target remote :1234
+ 
+
+
+break ksys_write
+
+
+c
+
+
+
+
+
+
+
+# maybe, can not run form a codespace server
+# try again in local
 
 
 
