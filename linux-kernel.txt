@@ -557,5 +557,50 @@ c
 
 
 
+# MarsCode.com
+
+# Exit QEMU: 
+To exit QEMU, you can press Ctrl+A and then X.
+
+
+
+
+
+qemu-system-x86_64 -kernel <kernel-image> -m 2G -smp 4 -device virtio-net-pci,netdev=net0 -netdev user,id=net0
+# In this example, we're allocating 2GB of memory, using 4 CPU cores, and creating a virtual network device.
+
+
+
+
+
+# ask artificial intelligence，large language model, marscode:
+# qemu-system-x86_64 -nographic -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+# 
+# qemu-system-x86_64: This is the QEMU emulator for the x86_64 architecture.
+# -nographic: This option tells QEMU not to create a graphical display. Instead, it will use a serial console for output.
+# -kernel arch/x86_64/boot/bzImage: This option specifies the path to the Linux kernel image (bzImage) that QEMU will load and boot.
+# -initrd ~/distro/init.cpio: This option tells QEMU to use the specified initial ramdisk (initrd) file. The initrd is a temporary file system that is loaded into memory during the boot process and is used to provide early userspace support.
+# -s: This option enables the QEMU gdbserver on TCP port 1234. This allows you to debug the kernel using a remote GDB debugger.
+# -S: This option tells QEMU to start the emulation in a paused state. This is useful if you want to attach a debugger before the emulation starts.
+# -append nokaslr: This option appends the "nokaslr" parameter to the kernel command line. "kaslr" stands for "kernel address space layout randomization", which is a security feature that randomizes the memory addresses of the kernel. The "nokaslr" parameter disables this feature.
+
+
+
+
+
+
+# echo init | cpio -H newc -o > init.cpio
+# 
+# echo init: This part of the command simply prints the word "init" to the standard output.
+# |: This is a pipe symbol that is used to redirect the output of the echo command to the input of the cpio command.
+# cpio -H newc -o: This is the cpio command that is used to create a new archive. The -H newc option specifies the format of the archive, and the -o option tells cpio to create an archive from the standard input.
+# > init.cpio: This redirects the output of the cpio command to a file named init.cpio.
+
+
+
+
+
+
+
 
 
