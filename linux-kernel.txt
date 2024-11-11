@@ -604,3 +604,28 @@ qemu-system-x86_64 -kernel <kernel-image> -m 2G -smp 4 -device virtio-net-pci,ne
 
 
 
+
+
+
+wget https://people.debian.org/~aurel32/qemu/i386/debian_wheezy_i386_standard.qcow2 -O wheezy.qcow2
+
+qemu-system-x86_64 -nographic wheezy.qcow2
+
+username:root
+password:root
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
