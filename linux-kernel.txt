@@ -173,8 +173,10 @@ make menuconfig
 
 # down to the lowest
 
-Kernel hacking   --->  Compile-time checks and compiler options  
-        --->   Debug information (Disable debug information)   --->   (X) Rely on the toolchain's implicit default DWARF versiLon
+Kernel hacking   
+--->  Compile-time checks and compiler options  
+        --->   Debug information (Disable debug information)   
+		--->   (X) Rely on the toolchain's implicit default DWARF versiLon
 		--->   [*] Provide GDB scripts for kernel debugging
 
 
@@ -643,10 +645,53 @@ qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -
 # Guest has not initialized the display (yet).
 
 
+what?
+
+
+tired...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#run this:
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio
+
+#output:
+end Kernel panic - not syncing: Attempted tto kill init!
+
+
+
+
+
+
+
+cd linux-6.11
+make defconfig
+make menuconfig
+
+		--->   (X) Rely on the toolchain's implicit default DWARF versiLon
+		--->   [*] Provide GDB scripts for kernel debugging
+
+
 
 
 gdb vmlinux
 
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+
+
+i got nothing...
 
 
 
