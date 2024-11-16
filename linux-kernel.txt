@@ -559,3 +559,25 @@ c
 
 
 
+
+
+
+# try in wsl:
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+
+
+
+
+# output:
+# Guest has not initialized the display (yet).
+
+
+
+
+gdb vmlinux
+
+
+
+
+
