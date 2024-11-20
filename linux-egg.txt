@@ -35,3 +35,20 @@ cmatrix
 
 
 
+
+
+
+# get an error:
+# bash: fortune: command not found
+
+whereis fortune
+#fortune: /usr/games/fortune
+
+
+
+export PATH=$PATH:/usr/games
+
+fortune
+# done 
+
+
