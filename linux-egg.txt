@@ -52,3 +52,17 @@ fortune
 # done 
 
 
+
+
+
+# If you have already installed the latest version of fortune-mod 
+# but are still unable to use the fortune command, there may be a few possible reasons:
+
+# PATH issue: The system may not be able to find the fortune command. 
+# You can try adding the directory containing the fortune command 
+# to the PATH environment variable. For example, 
+# if the fortune command is located in /usr/games, 
+# you can add the following line to your configuration file (such as ~/.bashrc):
+
+export PATH=$PATH:/usr/games
+
