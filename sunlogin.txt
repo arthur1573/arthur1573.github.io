@@ -1,0 +1,48 @@
+ubuntu24-install-sunlogin
+
+
+
+sudo dpkg -i SunloginClient_15.2.0.63064_amd64.deb 
+
+
+
+######## get an error
+Package libgconf-2-4 is not installed.
+
+
+
+sudo apt install libgconf-2-4
+# E: Package 'libgconf-2-4' has no installation candidate
+
+
+
+
+# need to add new mirror site to download software:
+cd /etc/apt/sources.list.d
+
+
+sudo nano ubuntu.sources
+
+########### add four line:
+Types: deb
+URIs: http://kr.archive.ubuntu.com/ubuntu
+Suites: jammy
+Components: main universe
+###########
+
+
+
+save
+
+
+
+sudo apt --fix-broken install
+
+
+
+sudo dpkg -i SunloginClient_15.2.0.63064_amd64.deb 
+
+
+
+
+done
