@@ -822,6 +822,123 @@ still do not get output on terminal...at least get the breakpoint:
 
 
 
+# qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+# run this, could see a print:
+qemu-system-x86_64 -nographic -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append "root=/dev/sda console=ttyS0" 
+
+
+
+# run this, could see a  breakpoint:
+qemu-system-x86_64 -nographic -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+
+
+
+
+gdb vmlinux
+
+
+
+
+
+############################### get a breakpoint 
+
+Reading symbols from vmlinux...
+(gdb) target remote :1234
+Remote debugging using :1234
+0x000000000000fff0 in exception_stacks ()
+(gdb) info b
+No breakpoints or watchpoints.
+(gdb) break ksys_write
+Breakpoint 1 at 0xffffffff8127f4c0: file fs/read_write.c, line 633.
+(gdb) c
+Continuing.
+
+Breakpoint 1, ksys_write (fd=1, buf=0x1826ab50 "Hello, new world", '.' <repeats 35 times>, " \n", count=53) at fs/read_write.c:633
+633     {
+(gdb) list
+628     {
+629             return ksys_read(fd, buf, count);
+630     }
+631
+632     ssize_t ksys_write(unsigned int fd, const char __user *buf, size_t count)
+633     {
+634             struct fd f = fdget_pos(fd);
+635             ssize_t ret = -EBADF;
+636
+637             if (f.file) {
+(gdb) 
+
+############################### get a breakpoint 
+
+
+
+
+
+
+
+
+
+
+
+
+(gdb) advance vfs_write
+Couldn't get information on specified line.
+
+
+
+
+
+
+
+
+what happend...
+
+
+
+
+
+
+
+
+
+# repeatly run:
+qemu-system-x86_64 -nographic -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+gdb vmlinux
+target remote :1234
+break vfs_write
+continue
+list
+
+
+ctrl+A, X: stop the qemu
+quit the gdb
+
+
+
+
+
+
+
+
+# again set breakpoint
+
+break new_sync_write
+
+
+
+
+
+
+tired...
+
+
+
+
+
+
+
 
 
 
