@@ -696,3 +696,111 @@ i got nothing...
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+try again...
+
+
+make defconfig
+make menuconfig
+make
+
+
+mkdir ~/distro
+vim init.c
+
+echo init | cpio -H newc -o > init.cpio
+
+
+
+
+gdb
+
+
+
+
+
+#####################
+warning: File "/home/codespace/linux-6.11.7/scripts/gdb/vmlinux-gdb.py" auto-loading has been declined by your `auto-load safe-path' set to "$debugdir:$datadir/auto-load".
+To enable execution of this file add
+        add-auto-load-safe-path /home/codespace/linux-6.11.7/scripts/gdb/vmlinux-gdb.py
+line to your configuration file "/home/codespace/.gdbinit".
+To completely disable this security protection add
+        set auto-load safe-path /
+line to your configuration file "/home/codespace/.gdbinit".
+
+
+
+
+
+
+vim /home/codespace/.gdbinit
+
+########### add this line to ignore auto-load
+set auto-load safe-path /
+
+
+
+
+
+
+it is turns out to run gdb...
+# Guest has not initialized the display (yet).
+
+
+# get this error is ok...
+
+
+
+
+
+
+gdb vmlinux
+
+qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -s -S -append nokaslr
+
+
+
+
+(gdb) target remote :1234
+
+(gdb) break ksys_write
+
+(gdb) continue
+
+(gdb) list
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
