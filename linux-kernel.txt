@@ -775,20 +775,30 @@ qemu-system-x86_64 -kernel arch/x86_64/boot/bzImage -initrd ~/distro/init.cpio -
 
 
 
+
+
 (gdb) target remote :1234
 
 (gdb) break ksys_write
 
 (gdb) continue
 
+(gdb) c
+Continuing.
+
+Breakpoint 1, ksys_write (fd=1, buf=0x36846b50 "Hello, new world. \n", count=19) at fs/read_write.c:633
+633     {
+
+
+
+
 (gdb) list
 
+(gdb) info break
 
+(gdb) enable delete breakpoint-number
 
-
-
-
-
+(gdb) delete breakponit 2
 
 
 
