@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random password</title>
+</head>
+<body>
+    <!-- <h1>random password</h1>  -->
+    <p id="random-string"></p>
+    <script>
+        function generateRandomString(length = 16) {
+            <!-- const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; -->
+            <!-- remove some character i do not like: I, l,   -->
+            <!-- add some sign: @, $, %, &, *, #-->
+            const characters = 'ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz0123456789@$%&*#';
+
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+        document.getElementById('random-string').textContent = generateRandomString();
+    </script>
+</body>
+</html>
+
+
+
