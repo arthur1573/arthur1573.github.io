@@ -1,0 +1,219 @@
+
+
+
+
+
+
+
+
+
+docker notes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// WSL for ubuntu 20
+
+
+
+
+apt install docker.io
+
+sudo visudo
+
+Add the following line to the bottom
+
+# Docker daemon specification
+root ALL=(ALL) NOPASSWD: /usr/bin/dockerd
+
+Notes: Please replace sungkim with your username.
+
+
+
+
+
+
+you can just add the following at end of .bashrc file.
+
+nano ~/.bashrc
+
+then add the following to end of the file.
+
+# Start Docker daemon automatically when logging in if not running.
+RUNNING=`ps aux | grep dockerd | grep -v grep`
+if [ -z "$RUNNING" ]; then
+sudo dockerd > /dev/null 2>&1 &
+disown
+fi
+
+
+
+
+
+
+
+// done
+docker run hello-world
+
+
+
+
+
+
+
+// download the system
+docker pull centos
+
+
+// run system
+docker run -d -t --name yatao centos
+
+
+// check the image(system)
+docker ps
+
+
+
+// I am in a container
+docker exec -it yatao bash
+
+
+// quit system
+exit
+
+
+
+
+
+
+
+docker pull alpine
+
+
+docker run -t -d --name ohyeah alpine
+
+
+
+docker ps
+
+
+// I am in the system
+docker exec -it ohyeah sh
+
+
+
+
+
+
+
+
+
+
+
+
+// buit a website
+docker pull thenetworkchuck/nccoffee:frenchpress
+
+docker run -t -d -p 80:80 --name nccoffee thenetworkchuck/nccoffee:frenchpress
+
+// if you could see a website, done
+
+
+
+
+
+
+
+
+
+// check myip
+curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+
+
+
+
+
+
+
+
+
+// stop a progress
+docker stop ohyeah
+
+
+
+// start a progress
+docker start ohyeah
+
+
+// check CPU usage
+docker stats
+
+
+
+
+
+
+
+
+
+
+
+
+// download a new program
+docker pull archlinux
+
+
+docker run -d -t --name arch archlinux
+
+docker ps
+
+
+
+https://www.youtube.com/watch?v=eGz9DS-aIeY
+
+
+
+
+
+
+
+
+
+
+
+
+
+docker run -d --name container-name
+
+
+# i stop computer, so docker stop
+
+
+
+repeat run this get an error
+docker run -d --name container-name
+# The container name "xxx" is already in use by container...
+
+
+
+# run this could start agint:
+docker start container-name
+
+
+
+
+
