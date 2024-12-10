@@ -215,5 +215,13 @@ docker start container-name
 
 
 
+# list stoped container
+docker container ls -a
+
+
+
+
+
+
 
 
