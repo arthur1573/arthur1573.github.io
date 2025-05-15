@@ -1,0 +1,788 @@
+import requests
+from bs4 import BeautifulSoup
+import sys
+import time
+import os
+
+# URL of the website to scrape
+url = "https://www.bohaishibei.com/post/tag/%e5%be%ae%e8%af%ad%e5%bd%95/"
+
+
+
+
+
+'''
+# Send a GET request to the website
+response = requests.get(url)
+print(response)
+
+# Parse the HTML content
+soup = BeautifulSoup(response.text, 'html.parser')
+
+
+# Extract the desired content (e.g., titles, links, etc.)
+posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+for post in posts:
+    title = post.get_text(strip=True)
+    link = post.find('a')['href']
+    print(f"Title: {title}")
+    print(f"Link: {link}")
+    print("-" * 40)
+
+'''
+
+
+
+
+        
+
+'''
+
+if posts:
+    first_link = posts[0].find('a')['href']
+    print(f"First Link: {first_link}")
+else:
+    print("No posts found to print the first link.")
+
+
+
+
+# Check if the first link is defined before using it    
+if 'first_link' in locals():
+    # Send a GET request to the first link
+    response = requests.get(first_link)
+    # Check if the request was successful
+    print(response)
+    
+    
+
+# Decode the content if it's in an unexpected encoding
+try:
+    response.encoding = response.apparent_encoding
+    soup = BeautifulSoup(response.text, 'html.parser')
+    content = soup.find_all('p')
+    for paragraph in content:
+        print(paragraph.get_text(strip=True))
+        print("-" * 40)
+except Exception as e:
+    print(f"Error decoding content: {e}")
+
+
+
+
+# Write the content of the first link to a text file in this folder
+with open('first_link_content.txt', 'w', encoding='utf-8') as file:
+    for paragraph in content:
+        file.write(paragraph.get_text(strip=True) + '\n')
+        file.write(" " * 40 + '\n')
+print("Content of the first link has been written to 'first_link_content.txt'")
+
+'''
+
+
+
+
+
+
+
+'''
+
+# Check if there is a second post to get the second link
+second_link = posts[1].find('a')['href']
+print(f"Second Link: {second_link}")
+
+# Send a GET request to the second link
+response = requests.get(second_link)
+# Check if the request was successful
+print(response)
+
+
+
+
+# Decode the content if it's in an unexpected encoding
+try:
+    response.encoding = response.apparent_encoding
+    soup = BeautifulSoup(response.text, 'html.parser')
+    content = soup.find_all('p')
+    for paragraph in content:
+        print(paragraph.get_text(strip=True))
+        print("-" * 40)
+except Exception as e:
+    print(f"Error decoding content: {e}")
+
+
+# Write the content of the second link to a text file in this folder
+with open('second_link_content.txt', 'w', encoding='utf-8') as file:
+    for paragraph in content:
+        file.write(paragraph.get_text(strip=True) + '\n')
+        file.write(" " * 40 + '\n')
+print("Content of the second link has been written to 'second_link_content.txt'")
+
+'''
+
+
+
+
+
+
+'''
+# Check if there is a third post to get the third link
+third_link = posts[2].find('a')['href']
+print(f"Third Link: {third_link}")
+
+# Send a GET request to the third link
+response = requests.get(third_link)
+# Check if the request was successful
+print(response)
+
+# Decode the content if it's in an unexpected encoding
+try:
+    response.encoding = response.apparent_encoding
+    soup = BeautifulSoup(response.text, 'html.parser')
+    content = soup.find_all('p')
+    for paragraph in content:
+        print(paragraph.get_text(strip=True))
+        print("-" * 40)
+except Exception as e:
+    print(f"Error decoding content: {e}")
+
+# Write the content of the third link to a text file in this folder
+with open('third_link_content.txt', 'w', encoding='utf-8') as file:
+    for paragraph in content:
+        file.write(paragraph.get_text(strip=True) + '\n')
+        file.write(" " * 40 + '\n')
+print("Content of the third link has been written to 'third_link_content.txt'")
+'''
+
+
+
+
+
+'''
+`# Loop through all posts to get their links and content
+for index, post in enumerate(posts):
+    link = post.find('a')['href']
+    print(f"Processing Link {index + 1}: {link}")
+
+    # Send a GET request to the link
+    response = requests.get(link)
+    print(response)
+
+    # Decode the content if it's in an unexpected encoding
+    try:
+        response.encoding = response.apparent_encoding
+        soup = BeautifulSoup(response.text, 'html.parser')
+        content = soup.find_all('p')
+        # Write the content of the link to a text file
+        filename = f'post_{index + 1}_content.txt'
+        with open(filename, 'w', encoding='utf-8') as file:
+            for paragraph in content:
+                file.write(paragraph.get_text(strip=True) + '\n')
+                file.write(" " * 40 + '\n')
+        print(f"Content of Link {index + 1} has been written to '{filename}'")
+    except Exception as e:
+        print(f"Error processing Link {index + 1}: {e}")
+
+'''
+
+
+
+
+
+
+
+'''
+# Find the link to the second page (assuming it's a link called "下一页"）
+next_page_link = soup.find('a', text='下一页')['href']
+print(f"Next Page Link: {next_page_link}")
+
+
+
+
+# Send a GET request to the second page
+response = requests.get(next_page_link)
+print(response)
+
+# Parse the HTML content of the second page
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Extract the desired content (e.g., titles, links, etc.) from the second page
+posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+
+# Loop through all posts to get their links and content
+for index, post in enumerate(posts):
+    link = post.find('a')['href']
+    print(f"Processing Link {index + 1}: {link}")
+
+    # Send a GET request to the link
+    response = requests.get(link)
+    print(response)
+
+    # Decode the content if it's in an unexpected encoding
+    try:
+        response.encoding = response.apparent_encoding
+        soup = BeautifulSoup(response.text, 'html.parser')
+        content = soup.find_all('p')
+        # Write the content of the link to a text file
+        filename = f'post_{index + 1}_content.txt'
+        with open(filename, 'w', encoding='utf-8') as file:
+            for paragraph in content:
+                file.write(paragraph.get_text(strip=True) + '\n')
+                file.write(" " * 40 + '\n')
+        print(f"Content of Link {index + 1} has been written to '{filename}'")
+    except Exception as e:
+        print(f"Error processing Link {index + 1}: {e}")
+'''
+
+
+
+
+
+
+
+'''
+
+# Find the link to the third page (assuming it's a link called "下一页" on the second page)
+next_page_link = soup.find('a', text='下一页')['href']
+print(f"Next Page Link: {next_page_link}")
+
+# Send a GET request to the third page
+response = requests.get(next_page_link)
+print(response)
+
+# Parse the HTML content of the third page
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Extract the link to the third page
+next_page_link = soup.find('a', text='下一页')['href']
+print(f"Third Page Link: {next_page_link}")
+
+# Send a GET request to the third page
+response = requests.get(next_page_link)
+print(response)
+
+# Parse the HTML content of the third page
+soup = BeautifulSoup(response.text, 'html.parser')
+
+# Extract the desired content (e.g., titles, links, etc.) from the third page
+posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+
+# Loop through all posts to get their links and content
+for index, post in enumerate(posts):
+    link = post.find('a')['href']
+    print(f"Processing Link {index + 1}: {link}")
+
+    # Send a GET request to the link
+    response = requests.get(link)
+    print(response)
+
+    # Decode the content if it's in an unexpected encoding
+    try:
+        response.encoding = response.apparent_encoding
+        soup = BeautifulSoup(response.text, 'html.parser')
+        content = soup.find_all('p')
+        # Write the content of the link to a text file
+        filename = f'third_page_post_{index + 1}_content.txt'
+        with open(filename, 'w', encoding='utf-8') as file:
+            for paragraph in content:
+                file.write(paragraph.get_text(strip=True) + '\n')
+                file.write(" " * 40 + '\n')
+        print(f"Content of Link {index + 1} has been written to '{filename}'")
+    except Exception as e:
+        print(f"Error processing Link {index + 1}: {e}")
+
+'''
+
+
+
+
+
+
+# Function to get all page links
+def get_all_pages_links(start_url):
+    page_links = []
+    current_url = start_url
+
+    while current_url:
+        response = requests.get(current_url)
+        if response.status_code != 200:
+            print(f"Failed to fetch {current_url}")
+            break
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+        page_links.append(current_url)
+        print(f"Added page link: {current_url}")
+
+        # Find the link to the next page (assuming it's a link called "下一页")
+        next_page = soup.find('a', text='下一页')
+        current_url = next_page['href'] if next_page else None
+
+    return page_links
+
+
+
+# Get all page links starting from the initial URL
+
+'''
+all_page_links = get_all_pages_links(url)           # do not call it again, if it already has all the links.
+
+
+print("All page links:")
+for link in all_page_links:
+    print(link)
+
+# save these links to a file named "all_page_links.txt" in the current folder.
+with open('all_page_links.txt', 'w') as file:
+    for link in all_page_links:
+        file.write(link + '\n')
+print("All page links have been written to 'all_page_links.txt'")
+
+'''
+
+
+
+
+
+'''
+all_page_links.txt
+https://www.bohaishibei.com/post/tag/%e5%be%ae%e8%af%ad%e5%bd%95/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/2/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/3/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/4/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/5/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/6/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/7/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/8/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/9/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/10/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/11/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/12/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/13/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/14/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/15/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/16/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/17/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/18/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/19/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/20/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/21/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/22/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/23/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/24/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/25/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/26/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/27/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/28/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/29/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/30/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/31/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/32/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/33/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/34/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/35/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/36/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/37/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/38/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/39/
+https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/40/
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+# get the first page links from the file "all_page_links.txt" in the current folder.
+# get the all page links from a file named "all_page_links.txt" in the current folder.
+# do not call that function again, if it already has all the links.
+with open('all_page_links.txt', 'r') as file:
+    all_page_links = file.readlines()
+    all_page_links = [link.strip() for link in all_page_links]  # Remove newline characters and extra spaces
+    print("All page links have been read from 'all_page_links.txt'")
+    print(all_page_links)
+    print("Number of page links: ", len(all_page_links))
+
+    first_page_link = all_page_links[0] if all_page_links else None
+    if first_page_link:
+        print("First page link: ", first_page_link)
+    else:
+        print("No page links found.")
+
+
+
+
+
+
+
+
+
+'''
+
+# Function to get all post names from the first page
+def get_all_post_names(first_page_link):
+    post_names = []
+    response = requests.get(first_page_link)
+    if response.status_code != 200:
+        print(f"Failed to fetch {first_page_link}")
+        return post_names
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+
+    for post in posts:
+        title = post.get_text(strip=True)
+        post_names.append(title)
+        #print(f"Post Name: {title}")
+    return post_names
+
+
+
+
+# Get all post names from the first page
+post_names = get_all_post_names(first_page_link)
+print("All post names from the first page:")
+for name in post_names:
+    print(name)
+
+
+'''
+
+
+
+
+
+'''
+# Function to get all post links with post name from the first page
+def get_all_post_links_with_name(first_page_link):
+    post_links = []
+    response = requests.get(first_page_link)
+    if response.status_code!= 200:
+        print(f"Failed to fetch {first_page_link}")
+        return post_links
+
+    soup = BeautifulSoup(response.text, 'html.parser')
+    posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+
+    for post in posts:
+        title = post.get_text(strip=True)
+        link = post.find('a')['href']
+        post_links.append((title, link))
+        #print(f"Post Name: {title}, Link: {link}") 
+    return post_links
+
+# Get all post links with post name from the first page
+post_links = get_all_post_links_with_name(first_page_link)
+print("All post links with post name from the first page:")
+for name, link in post_links:
+    print(f"Post Name: {name}, Link: {link}")
+
+'''
+
+
+
+
+
+'''
+# get post content from the first page and save it to a post named in the current folder.
+def get_post_content(post_links):
+    for name, link in post_links:
+        
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = requests.get(link, timeout=10)
+                if response.status_code == 200:
+                    break
+            except requests.exceptions.RequestException as e:
+                print(f"Attempt {attempt + 1} failed for {link}: {e}")
+                time.sleep(2)  # Wait before retrying
+        else:
+            print(f"Failed to fetch {link} after {retries} attempts")
+            continue
+            
+
+        response.encoding = response.apparent_encoding
+        soup = BeautifulSoup(response.text, 'html.parser')
+        content = soup.find_all('p')
+        filename = f'{name}.txt'
+        with open(filename, 'w', encoding='utf-8') as file:
+            for paragraph in content:
+                file.write(paragraph.get_text(strip=True) + '\n')
+                file.write(" " * 40 + '\n')
+        print(f"Content of post '{name}' has been written to '{filename}'")
+
+# Get post content from the first page and save it to a file named "first_page_post_content.txt" in the current folder.
+get_post_content(post_links)
+
+
+
+'''
+
+
+
+
+
+
+
+
+
+'''
+
+# get post content from the all page and save it to a post named in the current folder
+def get_all_post_content(all_page_links):
+    for link in all_page_links:
+        response = requests.get(link)
+        if response.status_code!= 200:
+            print(f"Failed to fetch {link}")
+            continue
+            
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = requests.get(link, timeout=10)
+                if response.status_code == 200:
+                    break
+            except requests.exceptions.RequestException as e:
+                print(f"Attempt {attempt + 1} failed for {link}: {e}")
+                time.sleep(2)  # Wait before retrying
+        else:
+            print(f"Failed to fetch {link} after {retries} attempts")
+            continue
+            
+        soup = BeautifulSoup(response.text, 'html.parser')
+        posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+        
+        print(f"Processing page: {link}")
+        print(f"Number of posts: {len(posts)}")
+        print("-" * 40)
+
+
+        for post in posts:
+            title = post.get_text(strip=True)
+            link = post.find('a')['href']
+            response = requests.get(link)
+            if response.status_code!= 200:
+                print(f"Failed to fetch {link}")
+                continue
+            response.encoding = response.apparent_encoding
+            soup = BeautifulSoup(response.text, 'html.parser')
+            content = soup.find_all('p')
+            # Sanitize the title to remove invalid characters for filenames
+            safe_title = "".join(c for c in title if c.isalnum() or c in " _-").strip()
+            filename = f'{safe_title}.txt'
+            with open(filename, 'w', encoding='utf-8') as file:
+                for paragraph in content:
+                    file.write(paragraph.get_text(strip=True) + '\n')
+                    file.write(" " * 40 + '\n')
+            print(f"Content of post '{title}' has been written to '{filename}'")
+            time.sleep(1)                                      # sleep seconds to avoid being blocked by the website
+
+        print("-" * 40)
+        print(f"Finished processing page: {link}")
+        print("-" * 40)
+
+        time.sleep(3)                                      # sleep seconds to avoid being blocked by the website
+
+
+
+# Get post content from the all page and save it to a post named in the current folder.
+get_all_post_content(all_page_links)
+
+print('Done')
+
+
+
+'''
+
+
+
+
+
+'''
+# page 7 is not download well, it stoped
+# restart these code, from page 7 to download all the posts
+# Restart downloading posts from page 7 
+def restart_post_download(all_page_links, start_page=7):
+    for page_index in range(start_page - 1, len(all_page_links)):
+        link = all_page_links[page_index]
+        
+        # retry download
+        # raise ConnectionError(err, request=request) 
+        # requests.exceptions.ConnectionError: 
+        # ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = requests.get(link, timeout=10)
+                if response.status_code == 200:
+                    break
+            except requests.exceptions.RequestException as e:
+                print(f"Attempt {attempt + 1} failed for {link}: {e}")
+                time.sleep(2)  # Wait before retrying
+        else:
+            print(f"Failed to fetch {link} after {retries} attempts")
+            continue
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+        posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+
+        print(f"Processing page {page_index + 1}: {link}")
+        print(f"Number of posts: {len(posts)}")
+        print("-" * 40)
+
+        for post in posts:
+            title = post.get_text(strip=True)
+            post_link = post.find('a')['href']
+            retries = 3
+            for attempt in range(retries):
+                try:
+                    post_response = requests.get(post_link, timeout=10)
+                    if post_response.status_code == 200:
+                        break
+                except requests.exceptions.RequestException as e:
+                    print(f"Attempt {attempt + 1} failed for {post_link}: {e}")
+                    time.sleep(2)  # Wait before retrying
+            else:
+                print(f"Failed to fetch {post_link} after {retries} attempts")
+                continue
+
+            post_response.encoding = post_response.apparent_encoding
+            post_soup = BeautifulSoup(post_response.text, 'html.parser')
+            content = post_soup.find_all('p')
+            
+            # Sanitize the title to remove invalid characters for filenames
+            safe_title = "".join(c for c in title if c.isalnum() or c in " _-").strip()
+            filename = f'{safe_title}.txt'
+
+
+            #filename = f'{title}.txt'
+            with open(filename, 'w', encoding='utf-8') as file:
+                for paragraph in content:
+                    file.write(paragraph.get_text(strip=True) + '\n')
+                    file.write(" " * 40 + '\n')
+            print(f"Content of post '{title}' has been written to '{filename}'")
+            time.sleep(1)  # Sleep to avoid being blocked by the website
+
+        print("-" * 40)
+        print(f"Finished processing page {page_index + 1}: {link}")
+        print("-" * 40)
+
+        time.sleep(3)  # Sleep to avoid being blocked by the website
+
+
+# Restart downloading posts from page 7 onward
+restart_post_download(all_page_links, start_page=7)
+print('Restart process completed.')
+
+'''
+
+
+
+# File "D:\poor dog\bohaishibei.py", line 581, in restart_post_download
+# OSError: [Errno 22] Invalid argument: '微语录精选0608：我在工作的时候怎么会很想睡?.txt'
+'''
+            # Sanitize the title to remove invalid characters for filenames
+            safe_title = "".join(c for c in title if c.isalnum() or c in " _-").strip()
+            filename = f'{safe_title}.txt'
+
+'''
+
+
+
+
+
+
+
+
+# restart these code, from page 20 to download all the posts, from the last downloaded post.
+# Restart downloading posts from page 20 onward, from the last downloaded post.
+def restart_post_download_from_last(all_page_links, start_page=20):
+    for page_index in range(start_page - 1, len(all_page_links)):
+        link = all_page_links[page_index]
+        retries = 3
+        for attempt in range(retries):
+            try:
+                response = requests.get(link, timeout=10)
+                if response.status_code == 200:
+                    break
+            except requests.exceptions.RequestException as e:
+                print(f"Attempt {attempt + 1} failed for {link}: {e}")
+                time.sleep(2)  # Wait before retrying
+        else:
+            print(f"Failed to fetch {link} after {retries} attempts")
+            continue
+
+        soup = BeautifulSoup(response.text, 'html.parser')
+        posts = soup.find_all('h2', class_='entry-title')  # Adjusted based on the website's actual HTML structure
+
+        print(f"Processing page {page_index + 1}: {link}")
+        print(f"Number of posts: {len(posts)}")
+        print("-" * 40)
+
+        for post in posts:
+            title = post.get_text(strip=True)
+            post_link = post.find('a')['href']
+            retries = 3
+            for attempt in range(retries):
+                try:
+                    post_response = requests.get(post_link, timeout=10)
+                    if post_response.status_code == 200:
+                        break
+                except requests.exceptions.RequestException as e:
+                    print(f"Attempt {attempt + 1} failed for {post_link}: {e}")
+                    time.sleep(2)  # Wait before retrying
+            else:
+                print(f"Failed to fetch {post_link} after {retries} attempts")
+                continue
+
+            post_response.encoding = post_response.apparent_encoding
+            post_soup = BeautifulSoup(post_response.text, 'html.parser')
+            content = post_soup.find_all('p')
+
+            # Check if the post has already been downloaded
+            if os.path.exists(f'{title}.txt'):
+                print(f"Post '{title}' has already been downloaded. Skipping...")
+                continue
+
+            # Sanitize the title to remove invalid characters for filenames
+            safe_title = "".join(c for c in title if c.isalnum() or c in " _-").strip()
+            filename = f'{safe_title}.txt'
+
+            with open(filename, 'w', encoding='utf-8') as file:
+                for paragraph in content:
+                    file.write(paragraph.get_text(strip=True) + '\n')
+                    file.write(" " * 40 + '\n')
+            print(f"Content of post '{title}' has been written to '{filename}'")
+            time.sleep(1)  # Sleep to avoid being blocked by the website
+
+        print("-" * 40)
+        print(f"Finished processing page {page_index + 1}: {link}")
+        print("-" * 40)
+        time.sleep(3)  # Sleep to avoid being blocked by the website
+
+
+# Restart downloading posts from page 20 onward, from the last downloaded post.
+restart_post_download_from_last(all_page_links, start_page=20)
+print('Restart process completed.')
+
+
+
+
+
+# Restart downloading posts from page 1 onward, from the last downloaded post.
+# restart_post_download_from_last(all_page_links, start_page=1)
+# downloaded 1993 items in total. at this time: 2025-05-15.
+# done
+
+
+
+
+
+
+
