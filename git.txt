@@ -24,6 +24,27 @@ git init
 git add .
 
 
+git commit
+###############
+Author identity unknown
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+###############
+
+
+
+
+
+
+
 
 
 git remote --verbose
@@ -128,7 +149,7 @@ git config --unset http.proxy
 
 
 
-# you maybe do not get a "push", if you use a proxy
+# you maybe do not get a "git push", if you use a proxy
 # try to remove it:
 git config --unset http.proxy
 
