@@ -69,6 +69,14 @@ open explorer.exe(myComputer) in windows10:
 
 
 
+anything you upload in windows system
+will display in linux $cd directory (/home/username)
+
+
+
+
+
+
 
 
 
@@ -81,6 +89,7 @@ allow vsftpd get through or stop
     sudo systemctl stop firewalld
 
     done
+
 
 
 

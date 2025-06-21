@@ -1,5 +1,9 @@
+
+# pip install requests bs4
 import requests
 from bs4 import BeautifulSoup
+
+
 import sys
 import time
 import os
@@ -321,6 +325,9 @@ def get_all_pages_links(start_url):
 
 
 
+
+
+
 # Get all page links starting from the initial URL
 
 '''
@@ -392,6 +399,30 @@ https://www.bohaishibei.com/post/tag/%E5%BE%AE%E8%AF%AD%E5%BD%95/page/40/
 
 
 
+# check if current directory has the file: all_page_links.txt
+if not os.path.isfile('all_page_links.txt'):
+    print("File 'all_page_links.txt' does not exist in the current directory.")
+
+    # call the function to save the links
+    all_page_links = get_all_pages_links(url)           # do not call it again, if it already has all the links.
+
+
+    # save these links to a file named "all_page_links.txt" in the current folder.
+    with open('all_page_links.txt', 'w') as file:
+        for link in all_page_links:
+            file.write(link + '\n')
+    print("All page links have been written to 'all_page_links.txt'")
+
+
+
+else:
+    print("File 'all_page_links.txt' exists in the current directory.")
+
+
+
+
+
+
 
 
 
@@ -405,7 +436,7 @@ with open('all_page_links.txt', 'r') as file:
     all_page_links = file.readlines()
     all_page_links = [link.strip() for link in all_page_links]  # Remove newline characters and extra spaces
     print("All page links have been read from 'all_page_links.txt'")
-    print(all_page_links)
+    # print(all_page_links)
     print("Number of page links: ", len(all_page_links))
 
     first_page_link = all_page_links[0] if all_page_links else None
@@ -413,6 +444,7 @@ with open('all_page_links.txt', 'r') as file:
         print("First page link: ", first_page_link)
     else:
         print("No page links found.")
+
 
 
 
@@ -700,9 +732,9 @@ print('Restart process completed.')
 
 
 
-# restart these code, from page 20 to download all the posts, from the last downloaded post.
-# Restart downloading posts from page 20 onward, from the last downloaded post.
-def restart_post_download_from_last(all_page_links, start_page=20):
+# restart these code,  to download all the posts, from the last downloaded post.
+
+def restart_post_download_from_last(all_page_links, start_page):
     for page_index in range(start_page - 1, len(all_page_links)):
         link = all_page_links[page_index]
         retries = 3
@@ -745,14 +777,19 @@ def restart_post_download_from_last(all_page_links, start_page=20):
             post_soup = BeautifulSoup(post_response.text, 'html.parser')
             content = post_soup.find_all('p')
 
-            # Check if the post has already been downloaded
-            if os.path.exists(f'{title}.txt'):
-                print(f"Post '{title}' has already been downloaded. Skipping...")
-                continue
 
             # Sanitize the title to remove invalid characters for filenames
             safe_title = "".join(c for c in title if c.isalnum() or c in " _-").strip()
             filename = f'{safe_title}.txt'
+
+
+
+            # Check if the post has already been downloaded
+            if os.path.exists(f'{safe_title}.txt'):
+                print(f"Post '{safe_title}' has already been downloaded. Skipping...")
+                continue
+
+
 
             with open(filename, 'w', encoding='utf-8') as file:
                 for paragraph in content:
@@ -768,15 +805,15 @@ def restart_post_download_from_last(all_page_links, start_page=20):
 
 
 # Restart downloading posts from page 20 onward, from the last downloaded post.
-restart_post_download_from_last(all_page_links, start_page=20)
-print('Restart process completed.')
+# restart_post_download_from_last(all_page_links, start_page=20)
+# print('Restart process completed.')
 
 
 
 
 
 # Restart downloading posts from page 1 onward, from the last downloaded post.
-# restart_post_download_from_last(all_page_links, start_page=1)
+restart_post_download_from_last(all_page_links, start_page=1)
 # downloaded 1993 items in total. at this time: 2025-05-15.
 # done
 
