@@ -5,8 +5,7 @@
 
 
 
-# my computer rebuild system regular,
-# for better performance
+# my computer rebuilds system for better performance
 # then cannot use "git" anymore
 # try to fix it
 https://stackoverflow.com/questions/43378060/meaning-of-the-github-message-push-declined-due-to-email-privacy-restrictions

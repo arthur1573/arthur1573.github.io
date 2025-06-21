@@ -1,5 +1,6 @@
 
 
+
 operation system: fedora 38
 
 
@@ -20,9 +21,11 @@ how setup a ftp server in hyper-v?
 
 
 
+
 in fedora
 ftp is a "client"
 vsftpd is a "server"
+
 
 
 
@@ -35,14 +38,16 @@ setup server
 install vsftpd in virtual machine(hyper-v):
 
     sudo yum install vsftpd
-    vsftpd
-        error: 500 OOPS: cannot read config file: /etc/vsftpd/vsftpd.conf
-        cd /etc/vsftpd
-        sudo su
-        cp vsftpd.conf vsftpd-backup.conf
-        cat vsftpd-backup.conf >> vsftpd.conf
-        vsftpd
+    sudo vsftpd
+        sudo vim vsftpd.conf
+	    listen=YES
+
+	sudo systemctl restart vsftpd
+
     done
+
+
+
 
 
 
@@ -65,10 +70,16 @@ open explorer.exe(myComputer) in windows10:
 
 
 
+
+
 if you open the fedora firewall
-allow vsftpd through it
-    firewall-cmd --permanent --add-port=21/tcp
-    firewall-cmd --reload
+allow vsftpd get through or stop
+
+    sudo firewall-cmd --permanent --add-port=21/tcp
+    sudo firewall-cmd --reload
+
+    sudo systemctl stop firewalld
+
     done
 
 
