@@ -1,0 +1,201 @@
+
+
+
+
+
+
+
+
+
+
+
+
+# offline install fedora network driver
+
+# error: The NVM Checksum Is Not Valid
+# inter hardware: i219-v
+
+# e1000e driver:
+# https://www.intel.cn/content/www/cn/zh/download/14611/intel-network-adapter-driver-for-pcie-intel-gigabit-ethernet-network-connections-under-linux-final-release.html
+
+# source:
+# https://www.cnblogs.com/wanglouxiaozi/p/17808202.html
+# https://www.intel.com/content/www/us/en/download/15755/intel-ethernet-connections-boot-utility-preboot-images-and-efi-drivers.html
+
+
+
+
+
+
+
+
+
+###################################### all you need is:
+
+sudo dmesg | grep e1000e
+
+mkdir preboot
+tar -xvf Preboot.tar.gz -C preboot
+
+cd preboot/APPS/BootUtil/Linux_x64/
+chmod +x bootutil64e
+./bootutil64e -NIC 1 -defcfg
+
+reboot
+
+done
+
+######################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# i am trying these, but not working
+# because find a online computer, download all rpm, copy to your local u-disk
+yum install yum-utils
+yumdownloader --destdir=./ --resolve make gcc 
+
+
+# check the kernel, kernel-devel, kerner-header are same version
+uname -r
+# 6.14.0-63.fc42.x86_64
+
+
+
+# check driver type
+lspci | grep Ether
+# Intel Corporation Ethernet Connection (17) I219-V
+
+
+# check driver installed or not
+lsmod | grep e1000e
+
+
+# dependens:
+yumdownloader --destdir=./ --resolve kernel-headers-6.14.0-63.fc42.x86_64
+yumdownloader --destdir=./ --resolve kernel-devel-6.14.0-63.fc42.x86_64
+yumdownloader --destdir=./ --resolve kernel-6.14.0-63.fc42.x86_64
+yumdownloader --destdir=./ --resolve elfutils-libelf-devel
+yumdownloader --destdir=./ --resolve binutils
+yumdownloader --destdir=./ --resolve cpp
+yumdownloader --destdir=./ --resolve glibc-devel
+yumdownloader --destdir=./ --resolve libgomp
+yumdownloader --destdir=./ --resolve libmpc
+yumdownloader --destdir=./ --resolve perl
+yumdownloader --destdir=./ --resolve perl-libs
+yumdownloader --destdir=./ --resolve perl-Module-Pluggable
+yumdownloader --destdir=./ --resolve perl-Pod-Escapes
+yumdownloader --destdir=./ --resolve perl-Pod-Simple
+yumdownloader --destdir=./ --resolve perl-threads
+yumdownloader --destdir=./ --resolve ppl
+yumdownloader --destdir=./ --resolve kmod-e1000e
+
+
+
+
+# download one by one, it does hard try
+
+
+
+
+
+
+# install all offline packet download from other computer, not this probelm
+sudo rpm -ivh *.rpm --nodeps --force
+
+
+
+
+
+
+# manully install e1000e
+tar zxf e1000e.tar.gz
+cd e1000e/src/
+
+make 
+
+
+# got an error, cannot make well:
+# common.mk:85: *** Kernel header files not in any of the expected locations.
+# common.mk:86: *** Install the appropriate kernel development package, e.g.
+# common.mk:87: *** kernel-devel, for building kernel modules and try again.  Stop.
+# make to install e1000e, cannot done, not this problem
+
+
+
+
+
+
+# kernel-devel, kernel-headers, kernel, three version already equl same version, after kernel update&downgrade, after reboot. not this problem
+
+
+
+
+
+# creat soft link, not this problem
+sudo ln -s /usr/src/kernel-headers-6.14.0-63.fc42.x86_64 linux
+sudo ln -s /usr/src/kernels/6.14.0-63.fc42.x86_64 linux
+
+
+
+
+
+
+# enable driver, not this problem 
+modprobe e1000e
+# remove
+rmmod e1000e
+
+
+
+
+
+
+
+
+
+
+# CONFIG_MODULE_SIG_ALL disable, not this problem
+sudo grubby --update-kernel=ALL  --args="module.sig_unenforce"
+
+
+
+# lack dependens packet, not this problem
+yumdownloader --destdir=./ --resolve linux-firmware
+
+
+
+# close BIOS secure boot, not this problem
+
+
+
+
+
+
+
+
+
+
+
+
+# install dual system will change system time
+# it is easy to get a website error
+# also could block ip, when use ping.pe to check ip address 
+# cannot open website, because SSL need to check your pc time
+# https will become http
+
+
+
+
+
