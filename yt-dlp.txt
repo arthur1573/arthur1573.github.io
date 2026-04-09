@@ -1,7 +1,16 @@
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+
+
+
+
+
+
+>>>>>>> dd67460cd4ce83430a32e37443cd414b49bcf782
 yt-dlp --proxy socks5://127.0.0.1:1080/ URL_OF_VIDEO
