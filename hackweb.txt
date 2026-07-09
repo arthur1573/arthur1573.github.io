@@ -1,0 +1,134 @@
+from windows system
+
+
+
+
+
+
+
+
+
+nslookup youtube.com
+
+
+ping youtube.com
+
+
+nmap -sV 119.3.70.188
+
+
+
+
+
+
+
+
+
+
+//download nmap:
+https://nmap.org/dist/nmap-7.99-setup.exe
+
+
+//download kali-Linux qemu version:
+https://cdimage.kali.org/kali-2026.2/kali-linux-2026.2-qemu-amd64.7z
+
+
+//download qemu:
+https://qemu.weilnetz.de/w64/qemu-w64-setup-20260501.exe
+
+
+
+
+
+
+
+
+
+cd kali-linux-2026.2-qemu-amd64
+
+qemu-system-x86_64.exe -m 4096 -smp 4 kali-linux-2026.2-qemu-amd64.qcow2
+
+//Username: kali
+//Password: kali
+
+
+
+
+
+
+
+
+//gobuster
+
+gobuster -w wordlist.txt -u targetURL
+
+
+
+
+//wordlist.txt
+sudo apt update
+sudo apt upgrade
+sudo apt install seclists
+
+
+
+
+seclists
+
+cd /usr/share/seclists/Discovery/Web-Content
+
+less common.txt
+wc -l common.txt
+
+
+
+
+
+gobuster dir -w common.txt -u https://www.bilibili.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
